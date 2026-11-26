@@ -289,6 +289,27 @@ export function DownloadClient({ release, fontStats }: DownloadClientProps) {
                 )}
               </Button>
             </div>
+
+            {/* Free Open-Source SmartScreen & Provenance Guide */}
+            <div className="rounded-xl border border-brand-lavender/30 bg-brand-surface-100/70 p-4 space-y-2 text-xs text-brand-text-secondary">
+              <div className="flex items-center gap-2 font-semibold text-white">
+                <ShieldCheck className="h-4 w-4 text-brand-lavender-light shrink-0" />
+                <span>
+                  {isAr
+                    ? "ملاحظة أمان Windows SmartScreen والتثبيت الموثق مجاناً"
+                    : "Windows SmartScreen Notice & Free Build Provenance"}
+                </span>
+              </div>
+              <p className="leading-relaxed">
+                {isAr
+                  ? 'نظراً لأن Fontivo مشروع مجاني ومفتوح المصدر بدون شهادة توقيع تجارية مدفوعة، قد يعرض ويندوز رسالة "Windows protected your PC". بعد مطابقة SHA-256 أعلاه، اضغط "More info" (معلومات إضافية) ثم "Run anyway" (التشغيل على أي حال)، أو تحقق من مصدر البناء الرسمي على خوادم GitHub عبر:'
+                  : 'Because Fontivo is 100% free open-source software without a paid commercial EV certificate, Windows may show "Windows protected your PC". After verifying the SHA-256 above, click "More info" -> "Run anyway", or verify official GitHub SLSA build provenance:'}
+              </p>
+              <code className="block font-mono text-[11px] sm:text-xs text-brand-lavender-light bg-brand-plum-dark border border-brand-border-subtle rounded-lg px-3 py-2 break-all ltr-isolate">
+                gh attestation verify .\Fontivo-v1.0-Setup.exe --owner
+                Ahmedfahmy8308
+              </code>
+            </div>
           </>
         ) : (
           <div className="rounded-2xl border border-brand-lavender/40 bg-brand-surface-200/80 p-6 sm:p-8 space-y-5 shadow-card">
