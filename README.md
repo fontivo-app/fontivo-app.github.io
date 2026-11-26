@@ -201,7 +201,8 @@ Fontivo-Site/
 │   ├── lib/                     # seo.ts, github.ts, wcag.ts, utils.ts
 │   └── locales/                 # Full English (en.ts) & Arabic (ar.ts) translation dictionaries
 ├── tests/                       # 17 Vitest suites (69 unit, i18n, SEO, WCAG & UI tests)
-├── AGENT.md                     # Cross-repo scope & AI agent operational rules
+├── AGENTS.md                    # Cross-repo scope & AI agent operational rules
+├── CHANGELOG.md                 # Release history following Keep a Changelog
 ├── CODE_OF_CONDUCT.md           # Contributor Covenant v2.1
 ├── CONTRIBUTING.md              # Contributor setup & quality guidelines
 ├── LICENSE                      # MIT License
