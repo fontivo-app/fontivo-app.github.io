@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Fontivo Desktop App Issues"
+    url: "https://github.com/Ahmedfahmy8308/Fontivo/issues"
+    about: "Report issues specific to the Windows/macOS/Linux Desktop application."
+  - name: "Fontivo-Fonts Library Issues"
+    url: "https://github.com/Ahmedfahmy8308/Fontivo-Fonts/issues"
+    about: "Request fonts or report pack archive issues in the Fontivo-Fonts repository."

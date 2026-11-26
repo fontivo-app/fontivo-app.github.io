@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 720">
+<rect width="1440" height="720" fill="#F5EBDD"/>
+<circle cx="1210" cy="120" r="300" fill="#B7A1D9" opacity=".18"/>
+<circle cx="1350" cy="610" r="220" fill="#F16B50" opacity=".14"/>
+<g transform="translate(100 100) scale(.7)">
+<path fill="#F16B50" d="M86 177c0-67 49-116 116-116h211c14 0 22 15 14 27l-43 66H204c-31 0-53 16-69 44l-49 85z"/><path fill="#B7A1D9" d="M76 350c0-67 49-116 116-116h177c14 0 22 15 14 27l-43 66H194c-31 0-53 16-69 44l-49 85z"/>
+</g>
+<text x="520" y="245" font-family="Sora,Inter,Arial,sans-serif" font-size="104" font-weight="750" letter-spacing="-5" fill="#291C2E">Fontivo</text>
+<text x="526" y="320" font-family="Inter,Arial,sans-serif" font-size="35" font-weight="700" fill="#F16B50">Type. Design. Deliver.</text>
+<text x="526" y="390" font-family="Inter,Arial,sans-serif" font-size="24" fill="#5A5366">Your typography library, creative tools,</text>
+<text x="526" y="426" font-family="Inter,Arial,sans-serif" font-size="24" fill="#5A5366">and brand assets in one local-first workspace.</text>
+<rect x="526" y="485" width="205" height="62" rx="14" fill="#F16B50"/>
+<text x="628" y="525" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700" fill="#291C2E">Explore Fontivo</text>
+</svg>

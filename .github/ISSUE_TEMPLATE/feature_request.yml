@@ -1,0 +1,12 @@
+name: "Feature or Documentation Request"
+description: "Suggest improvements to Fontivo-Site documentation, UX, or localization."
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "Proposed Improvement"
+      description: "Explain the improvement and how it benefits visitors or contributors."
+    validations:
+      required: true

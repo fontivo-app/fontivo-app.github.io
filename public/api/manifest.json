@@ -1,0 +1,53 @@
+{
+  "name": "Fontivo",
+  "license": "MIT",
+  "website": "https://fontivo.github.io",
+  "desktop": {
+    "version": "1.0.0",
+    "tag": "v1.0.0",
+    "platforms": {
+      "windows": {
+        "installer": "Fontivo-v1.0-Setup.exe",
+        "sizeBytes": 4201214,
+        "sizeFormatted": "4.01 MB",
+        "sha256": "11d8305bb220c54394d8a718e51cb4cd87d343f85d7fd74d3cb5cc41915b1a57",
+        "downloadUrl": "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.0.0/Fontivo-v1.0-Setup.exe"
+      },
+      "macos": {
+        "method": "install.sh",
+        "scriptUrl": "https://raw.githubusercontent.com/Ahmedfahmy8308/Fontivo/main/scripts/install.sh"
+      },
+      "linux": {
+        "method": "install.sh",
+        "scriptUrl": "https://raw.githubusercontent.com/Ahmedfahmy8308/Fontivo/main/scripts/install.sh"
+      }
+    }
+  },
+  "fontsLibrary": {
+    "repository": "https://github.com/Ahmedfahmy8308/Fontivo-Fonts",
+    "tag": "v1.0.3",
+    "totalFonts": 10939,
+    "totalFamilies": 4430,
+    "totalPacks": 15,
+    "compressedSizeFormatted": "864.01 MB",
+    "scripts": {
+      "latin": 7146,
+      "urdu": 1565,
+      "persian": 1257,
+      "arabic": 971
+    }
+  },
+  "developers": [
+    {
+      "name": "Eng. Ahmed Fahmy",
+      "role": "Software Engineer",
+      "github": "https://github.com/Ahmedfahmy8308",
+      "portfolio": "https://ahmed-fahmy.engineer/"
+    },
+    {
+      "name": "Eng. Mohamed Elashwah",
+      "role": "Graphic Designer",
+      "portfolio": "https://mohamed-elashwah.me/"
+    }
+  ]
+}

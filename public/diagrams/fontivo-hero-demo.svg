@@ -1,0 +1,345 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">Fontivo Desktop Studio — Zero-Latency Font Management</title>
+  <desc id="heroDesc">Clean vector demonstration of Fontivo v1.0.0: Win32 AddFontResourceExW FR_PRIVATE activation, Adobe CC Port 27715 synchronization, Color Studio 5x5 Loupe, and Arabic and Latin typography across 10,939 fonts and 4,430 families.</desc>
+
+  <defs>
+    <radialGradient id="studioBg" cx="50%" cy="40%" r="85%">
+      <stop offset="0%" stop-color="#291C2E"/>
+      <stop offset="65%" stop-color="#1D1322"/>
+      <stop offset="100%" stop-color="#140D17"/>
+    </radialGradient>
+    <linearGradient id="headerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#291C2E"/>
+      <stop offset="100%" stop-color="#1D1322"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#24182B"/>
+      <stop offset="100%" stop-color="#1A1120"/>
+    </linearGradient>
+    <linearGradient id="lavenderGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#B7A1D9"/>
+      <stop offset="100%" stop-color="#F16B50"/>
+    </linearGradient>
+    <pattern id="dotGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#FFF9F2" fill-opacity="0.04"/>
+    </pattern>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="24" flood-color="#0A060C" flood-opacity="0.72"/>
+    </filter>
+  </defs>
+
+  <style>
+    <![CDATA[
+    @keyframes pulseLiveDot {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    @keyframes toggleSlide {
+      0%, 20% { transform: translateX(0px); fill: #9D8CA8; }
+      30%, 85% { transform: translateX(22px); fill: #FFF9F2; }
+      95%, 100% { transform: translateX(0px); fill: #9D8CA8; }
+    }
+    @keyframes toggleBg {
+      0%, 20% { fill: #291C2E; stroke: #46324E; }
+      30%, 85% { fill: #F16B50; stroke: #F16B50; }
+      95%, 100% { fill: #291C2E; stroke: #46324E; }
+    }
+    @keyframes latencyReveal {
+      0%, 22% { opacity: 0.35; }
+      32%, 85% { opacity: 1; }
+      95%, 100% { opacity: 0.35; }
+    }
+
+    .live-dot { animation: pulseLiveDot 2.4s ease-in-out infinite; }
+    .toggle-knob { animation: toggleSlide 8s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .toggle-track { animation: toggleBg 8s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+    .latency-badge { animation: latencyReveal 8s ease-in-out infinite; }
+
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Tajawal, Roboto, sans-serif;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', 'Segoe UI Mono', Consolas, monospace;
+    }
+    .arabic-text {
+      font-family: 'Tajawal', 'Amiri', 'Segoe UI', sans-serif;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .toggle-knob { transform: translateX(22px); fill: #FFF9F2; }
+      .toggle-track { fill: #F16B50; stroke: #F16B50; }
+      .latency-badge { opacity: 1; }
+    }
+    ]]>
+  </style>
+
+  <!-- Canvas Backdrop -->
+  <rect width="1280" height="720" fill="url(#studioBg)"/>
+  <rect width="1280" height="720" fill="url(#dotGrid)"/>
+
+  <!-- MAIN APPLICATION SHELL -->
+  <g transform="translate(32, 28)" filter="url(#softShadow)">
+    <rect width="1216" height="664" rx="16" fill="#140D17" stroke="#3D2B45" stroke-width="1.4"/>
+
+    <!-- TITLEBAR -->
+    <rect width="1216" height="54" rx="16" fill="url(#headerGrad)"/>
+    <rect y="38" width="1216" height="16" fill="url(#headerGrad)"/>
+    <line x1="0" y1="54" x2="1216" y2="54" stroke="#3D2B45" stroke-width="1"/>
+
+    <!-- Window Controls -->
+    <circle cx="28" cy="27" r="5.5" fill="#F16B50" fill-opacity="0.85"/>
+    <circle cx="48" cy="27" r="5.5" fill="#B7A1D9" fill-opacity="0.6"/>
+    <circle cx="68" cy="27" r="5.5" fill="#FFF9F2" fill-opacity="0.35"/>
+
+    <!-- Brand Emblem & Title (clean spacing) -->
+    <g transform="translate(96, 12)">
+      <g transform="translate(0, 1) scale(0.052)">
+        <path fill="#F16B50" d="M86 177c0-67 49-116 116-116h211c14 0 22 15 14 27l-43 66H204c-31 0-53 16-69 44l-49 85z"/>
+        <path fill="#B7A1D9" d="M76 350c0-67 49-116 116-116h177c14 0 22 15 14 27l-43 66H194c-31 0-53 16-69 44l-49 85z"/>
+      </g>
+      <text x="34" y="21" font-size="15.5" font-weight="800" fill="#FFF9F2">Fontivo</text>
+      <text x="102" y="21" font-size="13" font-weight="500" fill="#B7A1D9">Desktop Studio</text>
+    </g>
+
+    <!-- Header Status Pill -->
+    <g transform="translate(344, 15)">
+      <rect width="232" height="24" rx="12" fill="#1D1322" stroke="#46324E" stroke-width="1"/>
+      <circle cx="15" cy="12" r="4" fill="#F16B50" class="live-dot"/>
+      <text x="27" y="16" font-size="11" font-weight="700" fill="#FFF9F2">Win32 FR_PRIVATE: Active</text>
+    </g>
+
+    <!-- Header Adobe CC Port 27715 Badges -->
+    <g transform="translate(838, 14)">
+      <rect x="0" y="0" width="174" height="26" rx="6" fill="#1D1322" stroke="#B7A1D9" stroke-opacity="0.55" stroke-width="1"/>
+      <rect x="6" y="4" width="18" height="18" rx="3" fill="#291C2E"/>
+      <text x="15" y="17" text-anchor="middle" font-size="10.5" font-weight="800" fill="#B7A1D9" class="mono">Ps</text>
+      <text x="32" y="17" font-size="11" font-weight="600" fill="#FFF9F2">Photoshop :27715</text>
+
+      <g transform="translate(184, 0)">
+        <rect x="0" y="0" width="174" height="26" rx="6" fill="#1D1322" stroke="#F16B50" stroke-opacity="0.55" stroke-width="1"/>
+        <rect x="6" y="4" width="18" height="18" rx="3" fill="#291C2E"/>
+        <text x="15" y="17" text-anchor="middle" font-size="10.5" font-weight="800" fill="#F16B50" class="mono">Ai</text>
+        <text x="32" y="17" font-size="11" font-weight="600" fill="#FFF9F2">Illustrator :27715</text>
+      </g>
+    </g>
+
+    <!-- LEFT SIDEBAR (Width: 260px) -->
+    <g transform="translate(0, 54)">
+      <rect width="260" height="610" fill="#1D1322"/>
+      <line x1="260" y1="0" x2="260" y2="610" stroke="#3D2B45" stroke-width="1"/>
+
+      <!-- Search Input -->
+      <g transform="translate(16, 18)">
+        <rect width="228" height="34" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+        <circle cx="16" cy="17" r="4.5" fill="none" stroke="#9D8CA8" stroke-width="1.4"/>
+        <line x1="20" y1="21" x2="23.5" y2="24.5" stroke="#9D8CA8" stroke-width="1.4" stroke-linecap="round"/>
+        <text x="32" y="21" font-size="11.5" fill="#9D8CA8">Search 10,939 fonts...</text>
+        <rect x="178" y="8" width="42" height="18" rx="4" fill="#291C2E" stroke="#46324E" stroke-width="1"/>
+        <text x="199" y="20" text-anchor="middle" font-size="9.5" font-weight="600" fill="#B7A1D9" class="mono">Ctrl K</text>
+      </g>
+
+      <text x="20" y="82" font-size="10" font-weight="700" letter-spacing="1" fill="#9D8CA8" class="mono">LIBRARY COLLECTIONS</text>
+
+      <!-- Nav Item 1 -->
+      <g transform="translate(12, 94)">
+        <rect width="236" height="34" rx="6" fill="transparent"/>
+        <text x="16" y="21" font-size="12.5" font-weight="500" fill="#F5EBDD">All Fonts</text>
+        <text x="222" y="21" text-anchor="end" font-size="11" font-weight="600" fill="#9D8CA8" class="mono">10,939</text>
+      </g>
+
+      <!-- Nav Item 2 (Active) -->
+      <g transform="translate(12, 134)">
+        <rect width="236" height="34" rx="6" fill="#291C2E" stroke="#F16B50" stroke-opacity="0.45" stroke-width="1"/>
+        <rect x="0" y="4" width="3.5" height="26" rx="2" fill="#F16B50"/>
+        <text x="16" y="21" font-size="12.5" font-weight="700" fill="#FFF9F2">Arabic Type Families</text>
+        <text x="222" y="21" text-anchor="end" font-size="11" font-weight="700" fill="#F16B50" class="mono">4,430</text>
+      </g>
+
+      <!-- Nav Item 3 -->
+      <g transform="translate(12, 174)">
+        <rect width="236" height="34" rx="6" fill="transparent"/>
+        <text x="16" y="21" font-size="12.5" font-weight="500" fill="#F5EBDD">Color Studio</text>
+        <text x="222" y="21" text-anchor="end" font-size="10" font-weight="600" fill="#B7A1D9" class="mono">5x5 LOUPE</text>
+      </g>
+
+      <!-- Nav Item 4 -->
+      <g transform="translate(12, 214)">
+        <rect width="236" height="34" rx="6" fill="transparent"/>
+        <text x="16" y="21" font-size="12.5" font-weight="500" fill="#F5EBDD">Variable OpenType</text>
+        <text x="222" y="21" text-anchor="end" font-size="11" font-weight="600" fill="#9D8CA8" class="mono">840</text>
+      </g>
+
+      <!-- Nav Item 5 -->
+      <g transform="translate(12, 254)">
+        <rect width="236" height="34" rx="6" fill="transparent"/>
+        <text x="16" y="21" font-size="12.5" font-weight="500" fill="#F5EBDD">System &amp; RAM Health</text>
+        <text x="222" y="21" text-anchor="end" font-size="10.5" font-weight="700" fill="#F16B50" class="mono">OK</text>
+      </g>
+
+      <line x1="20" y1="304" x2="240" y2="304" stroke="#3D2B45" stroke-width="1"/>
+
+      <!-- SYSTEM METRICS CARD -->
+      <g transform="translate(14, 320)">
+        <rect width="232" height="156" rx="10" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+        <text x="14" y="22" font-size="10" font-weight="700" letter-spacing="0.8" fill="#B7A1D9" class="mono">SYSTEM PERFORMANCE</text>
+
+        <text x="14" y="48" font-size="11.5" fill="#9D8CA8">Indexed Catalog:</text>
+        <text x="218" y="48" text-anchor="end" font-size="11.5" font-weight="700" fill="#FFF9F2" class="mono">10,939 / 4,430</text>
+
+        <text x="14" y="72" font-size="11.5" fill="#9D8CA8">Idle Resident RAM:</text>
+        <text x="218" y="72" text-anchor="end" font-size="11.5" font-weight="700" fill="#F16B50" class="mono">~38.5 MB</text>
+
+        <text x="14" y="96" font-size="11.5" fill="#9D8CA8">Adobe CC Bridge:</text>
+        <text x="218" y="96" text-anchor="end" font-size="11" font-weight="700" fill="#B7A1D9" class="mono">PORT 27715</text>
+
+        <text x="14" y="120" font-size="11.5" fill="#9D8CA8">Win32 Isolation:</text>
+        <text x="218" y="120" text-anchor="end" font-size="11" font-weight="700" fill="#FFF9F2" class="mono">FR_PRIVATE</text>
+
+        <rect x="14" y="136" width="204" height="5" rx="2.5" fill="#291C2E"/>
+        <rect x="14" y="136" width="188" height="5" rx="2.5" fill="url(#lavenderGrad)"/>
+      </g>
+
+      <!-- Foundry Note -->
+      <g transform="translate(14, 492)">
+        <rect width="232" height="92" rx="10" fill="#241628" stroke="#46324E" stroke-width="1"/>
+        <text x="14" y="24" font-size="11" font-weight="800" fill="#FFF9F2">ZERO-REGISTRY ENGINE</text>
+        <text x="14" y="44" font-size="10.5" fill="#F5EBDD" fill-opacity="0.8">Instant RAM font activation.</text>
+        <text x="14" y="60" font-size="10.5" fill="#B7A1D9">No OS clutter. Clean on exit.</text>
+        <text x="14" y="79" font-size="9.5" font-weight="600" fill="#F16B50" class="mono">AddFontResourceExW</text>
+      </g>
+    </g>
+
+    <!-- RIGHT MAIN WORKSPACE CANVAS (Width: 956px) -->
+    <g transform="translate(260, 54)">
+      <rect width="956" height="610" fill="#140D17"/>
+
+      <!-- Controls Toolbar (clean separation, zero overlapping text) -->
+      <g transform="translate(24, 18)">
+        <text x="0" y="20" font-size="16" font-weight="800" fill="#FFF9F2">Featured Foundry Typefaces</text>
+
+        <g transform="translate(556, 0)">
+          <rect x="0" y="0" width="84" height="26" rx="6" fill="#291C2E" stroke="#F16B50" stroke-width="1.2"/>
+          <text x="42" y="17" text-anchor="middle" font-size="11" font-weight="700" fill="#F16B50">All (4,430)</text>
+
+          <rect x="92" y="0" width="80" height="26" rx="6" fill="#1D1322" stroke="#3D2B45" stroke-width="1"/>
+          <text x="132" y="17" text-anchor="middle" font-size="11" font-weight="500" fill="#B7A1D9">Arabic</text>
+
+          <rect x="180" y="0" width="76" height="26" rx="6" fill="#1D1322" stroke="#3D2B45" stroke-width="1"/>
+          <text x="218" y="17" text-anchor="middle" font-size="11" font-weight="500" fill="#B7A1D9">Latin</text>
+
+          <rect x="264" y="0" width="88" height="26" rx="6" fill="#1D1322" stroke="#3D2B45" stroke-width="1"/>
+          <text x="308" y="17" text-anchor="middle" font-size="11" font-weight="500" fill="#B7A1D9">Variable</text>
+        </g>
+      </g>
+
+      <!-- CARD 1: ARABIC TYPOGRAPHY SHOWCASE -->
+      <g transform="translate(24, 62)">
+        <rect width="908" height="240" rx="12" fill="url(#cardGrad)" stroke="#3D2B45" stroke-width="1.2"/>
+
+        <g transform="translate(20, 18)">
+          <text x="0" y="17" font-size="15" font-weight="800" fill="#FFF9F2">Tajawal Kufic &amp; Cairo</text>
+
+          <rect x="200" y="2" width="106" height="20" rx="4" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+          <text x="253" y="15.5" text-anchor="middle" font-size="10" font-weight="600" fill="#B7A1D9" class="mono">ARABIC MODERN</text>
+
+          <rect x="314" y="2" width="80" height="20" rx="4" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+          <text x="354" y="15.5" text-anchor="middle" font-size="10" font-weight="600" fill="#F5EBDD" class="mono">BOLD 700</text>
+
+          <rect x="402" y="2" width="112" height="20" rx="4" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+          <text x="458" y="15.5" text-anchor="middle" font-size="10" font-weight="600" fill="#F16B50" class="mono">OT: LIGA + KERN</text>
+
+          <g transform="translate(656, 0)">
+            <text x="-12" y="16" text-anchor="end" font-size="11" font-weight="600" fill="#B7A1D9">RAM:</text>
+            <rect x="0" y="0" width="48" height="24" rx="12" class="toggle-track" stroke-width="1"/>
+            <circle cx="13" cy="12" r="8" class="toggle-knob"/>
+
+            <g transform="translate(58, 2)" class="latency-badge">
+              <rect width="126" height="20" rx="4" fill="#291C2E" stroke="#F16B50" stroke-opacity="0.55" stroke-width="1"/>
+              <text x="63" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF9F2" class="mono">0ms ACTIVATED</text>
+            </g>
+          </g>
+        </g>
+
+        <line x1="20" y1="50" x2="888" y2="50" stroke="#3D2B45" stroke-width="1" stroke-dasharray="3 4"/>
+
+        <g transform="translate(24, 132)">
+          <text x="860" y="0" text-anchor="end" font-size="32" font-weight="800" fill="#FFF9F2" class="arabic-text">
+            فَنُّ الطِّبَاعَةِ العَرَبِيِّ المُعَاصِرِ — دِقَّةُ الحَرْفِ وَجَمَالُ التَّصْمِيم
+          </text>
+          <text x="860" y="34" text-anchor="end" font-size="13.5" font-weight="500" fill="#F5EBDD" fill-opacity="0.75">
+            Contemporary Arabic Typography Engineered with Mathematical Grid Precision
+          </text>
+        </g>
+
+        <g transform="translate(20, 206)" class="mono" font-size="10" font-weight="600" fill="#9D8CA8">
+          <text x="0" y="14">CAP: 96PX</text>
+          <text x="108" y="14">X-HEIGHT: 68PX</text>
+          <text x="236" y="14">GLYPHS: 864</text>
+          <text x="352" y="14">UNICODE 15.1</text>
+          <text x="868" y="14" text-anchor="end" fill="#B7A1D9">ADOBE CC :27715 READY</text>
+        </g>
+      </g>
+
+      <!-- CARD 2: LATIN & FOUNDRY GEOMETRY SHOWCASE -->
+      <g transform="translate(24, 320)">
+        <rect width="908" height="232" rx="12" fill="url(#cardGrad)" stroke="#3D2B45" stroke-width="1.2"/>
+
+        <g transform="translate(20, 18)">
+          <text x="0" y="17" font-size="15" font-weight="800" fill="#FFF9F2">Cabinet Grotesk Variable</text>
+
+          <rect x="210" y="2" width="102" height="20" rx="4" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+          <text x="261" y="15.5" text-anchor="middle" font-size="10" font-weight="600" fill="#B7A1D9" class="mono">SWISS DISPLAY</text>
+
+          <rect x="320" y="2" width="94" height="20" rx="4" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+          <text x="367" y="15.5" text-anchor="middle" font-size="10" font-weight="600" fill="#F5EBDD" class="mono">VAR 100-900</text>
+
+          <rect x="422" y="2" width="98" height="20" rx="4" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+          <text x="471" y="15.5" text-anchor="middle" font-size="10" font-weight="600" fill="#F16B50" class="mono">DIRECTWRITE</text>
+
+          <g transform="translate(656, 0)">
+            <text x="-12" y="16" text-anchor="end" font-size="11" font-weight="600" fill="#B7A1D9">RAM:</text>
+            <rect x="0" y="0" width="48" height="24" rx="12" fill="#F16B50" stroke="#F16B50" stroke-width="1"/>
+            <circle cx="35" cy="12" r="8" fill="#FFF9F2"/>
+
+            <g transform="translate(58, 2)">
+              <rect width="126" height="20" rx="4" fill="#291C2E" stroke="#F16B50" stroke-opacity="0.55" stroke-width="1"/>
+              <text x="63" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#FFF9F2" class="mono">0ms ACTIVATED</text>
+            </g>
+          </g>
+        </g>
+
+        <line x1="20" y1="50" x2="888" y2="50" stroke="#3D2B45" stroke-width="1" stroke-dasharray="3 4"/>
+
+        <g transform="translate(24, 126)">
+          <text x="0" y="0" font-size="32" font-weight="800" letter-spacing="-0.8" fill="#FFF9F2">
+            Aa Bb Gg Qq 123456 — Swiss Grid Discipline
+          </text>
+          <text x="0" y="34" font-size="14" font-weight="500" fill="#F5EBDD" fill-opacity="0.75">
+            Color Studio 5x5 Loupe, System Health Inspector &amp; instant Win32 activation for Adobe CC.
+          </text>
+        </g>
+
+        <g transform="translate(20, 198)" class="mono" font-size="10" font-weight="600" fill="#9D8CA8">
+          <text x="0" y="14">WEIGHT: 900</text>
+          <text x="116" y="14">LEADING: 1.15</text>
+          <text x="242" y="14">TRACKING: -0.025EM</text>
+          <text x="404" y="14">OPENTYPE: SS01, CALT</text>
+          <text x="868" y="14" text-anchor="end" fill="#F16B50">ILLUSTRATOR CC :27715 READY</text>
+        </g>
+      </g>
+
+      <!-- CLEAN STATUS BAR AT BOTTOM OF WORKSPACE (NO OVERLAPPING TOAST) -->
+      <g transform="translate(24, 566)">
+        <rect width="908" height="30" rx="8" fill="#1D1322" stroke="#3D2B45" stroke-width="1"/>
+        <circle cx="18" cy="15" r="3.5" fill="#F16B50"/>
+        <text x="30" y="19" font-size="11" font-weight="600" fill="#F5EBDD">
+          Win32 AddFontResourceExW (FR_PRIVATE) • Synced to Adobe CC :27715 • ~38.5 MB Idle RAM
+        </text>
+        <text x="892" y="19" text-anchor="end" font-size="10.5" font-weight="700" fill="#B7A1D9" class="mono">
+          100% LOCAL-FIRST
+        </text>
+      </g>
+    </g>
+  </g>
+</svg>

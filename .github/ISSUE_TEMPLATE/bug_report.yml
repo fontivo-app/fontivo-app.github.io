@@ -1,0 +1,32 @@
+name: "Bug Report"
+description: "Report a UI, localization, broken link, or SEO issue on Fontivo-Site."
+title: "[Bug]: "
+labels: ["bug", "triage"]
+body:
+  - type: input
+    id: page_url
+    attributes:
+      label: "Affected Route / Page"
+      description: "Which route has the problem (e.g., /en/download, /ar/features, /)?"
+      placeholder: "/ar/download"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: device
+    attributes:
+      label: "Viewport / Device"
+      options:
+        - "Desktop (1280px+)"
+        - "Tablet (768px - 1024px)"
+        - "Mobile (320px - 480px)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description & Expected Behavior"
+      description: "Describe what went wrong and what should happen instead."
+    validations:
+      required: true

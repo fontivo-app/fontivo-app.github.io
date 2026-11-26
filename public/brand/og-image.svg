@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="ogCoral" cx="85%" cy="85%" r="45%">
+      <stop offset="0%" stop-color="#F16B50" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#F16B50" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="ogLavender" cx="85%" cy="15%" r="50%">
+      <stop offset="0%" stop-color="#B7A1D9" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#B7A1D9" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#130C16"/>
+  <rect width="1200" height="630" fill="url(#ogLavender)"/>
+  <rect width="1200" height="630" fill="url(#ogCoral)"/>
+
+  <!-- Dual-Ribbon F Mark: original width ~413, scaled 0.52 = ~215px wide (x=88..303) -->
+  <g transform="translate(88 158) scale(0.52)">
+    <path fill="#F16B50" d="M86 177c0-67 49-116 116-116h211c14 0 22 15 14 27l-43 66H204c-31 0-53 16-69 44l-49 85z"/>
+    <path fill="#B7A1D9" d="M76 350c0-67 49-116 116-116h177c14 0 22 15 14 27l-43 66H194c-31 0-53 16-69 44l-49 85z"/>
+  </g>
+
+  <!-- Brand Wordmark & Copy starting at x=356 (53px clean gap from mark) -->
+  <text x="356" y="294" font-family="Sora, Inter, 'Segoe UI', Arial, sans-serif" font-size="114" font-weight="800" letter-spacing="-3" fill="#FFF9F2">Fontivo</text>
+  <text x="360" y="366" font-family="Sora, Inter, 'Segoe UI', Arial, sans-serif" font-size="38" font-weight="700" fill="#F16B50">Type. Design. Deliver.</text>
+  <text x="360" y="424" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-size="24" font-weight="400" fill="#F5EBDD" fill-opacity="0.82">Zero-bloat font management, Adobe CC bridge &amp; color studio.</text>
+
+  <!-- Footer Rule & Metadata -->
+  <line x1="88" y1="532" x2="1112" y2="532" stroke="#F5EBDD" stroke-opacity="0.16" stroke-width="1.5"/>
+  <text x="88" y="576" font-family="'JetBrains Mono', Inter, monospace" font-size="15" font-weight="600" letter-spacing="2" fill="#B7A1D9">LOCAL-FIRST  •  WIN32 FR_PRIVATE  •  100% OPEN SOURCE</text>
+  <text x="1112" y="576" text-anchor="end" font-family="'JetBrains Mono', Inter, monospace" font-size="15" font-weight="600" fill="#F7B544">fontivo.github.io</text>
+</svg>

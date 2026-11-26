@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Fontivo v2.0 Brand Tokens (Single Point of Truth) */
+  --fontivo-plum: #291c2e;
+  --fontivo-coral: #f16b50;
+  --fontivo-lavender: #b7a1d9;
+  --fontivo-amber: #f7b544;
+  --fontivo-lime: #c7d65a;
+  --fontivo-paper: #f5ebdd;
+  --fontivo-paper-white: #fff9f2;
+  --fontivo-warm-gray: #e8e1d6;
+  --fontivo-slate: #5a5366;
+
+  --bg-foundation: #130c16;
+  --bg-surface-1: #1b1220;
+  --bg-surface-2: #231829;
+  --bg-surface-3: var(--fontivo-plum);
+
+  --border-subtle: #2e2036;
+  --border-medium: #43314d;
+  --border-strong: var(--fontivo-slate);
+
+  --text-primary: var(--fontivo-paper-white);
+  --text-secondary: #d8cedf;
+  --text-muted: #9a8fa6;
+
+  --accent-coral: var(--fontivo-coral);
+  --accent-lavender: var(--fontivo-lavender);
+  --accent-amber: var(--fontivo-amber);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  overflow-x: clip;
+}
+
+body {
+  background-color: var(--bg-foundation);
+  color: var(--text-primary);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sora), var(--font-inter), sans-serif;
+}
+
+/* Mathematical grid & warm radial glow utilities */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(46, 32, 54, 0.4) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 32, 54, 0.4) 1px, transparent 1px);
+}
+
+.bg-radial-gradient {
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(241, 107, 80, 0.14) 0%,
+    rgba(183, 161, 217, 0.05) 38%,
+    rgba(19, 12, 22, 0) 70%
+  );
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #fff9f2 0%, #f5ebdd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, #f16b50 0%, #b7a1d9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #130c16;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2e2036;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #43314d;
+}
+
+/* Crisp keyboard focus outline */
+:focus-visible {
+  outline: 2px solid #f16b50;
+  outline-offset: 2px;
+}
+
+/* RTL Typography & explicit inline LTR isolation (without overriding layout display rules) */
+[dir="rtl"],
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4 {
+  font-family:
+    var(--font-tajawal),
+    "Noto Sans Arabic",
+    system-ui,
+    -apple-system,
+    sans-serif;
+  letter-spacing: 0;
+}
+
+[dir="rtl"] .ltr-isolate {
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

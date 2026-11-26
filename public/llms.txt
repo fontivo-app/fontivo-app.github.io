@@ -1,0 +1,26 @@
+# Fontivo — Native Desktop Font Manager & 10,939-Font Library
+
+> Fontivo is a free, open-source (MIT) Windows, macOS, and Linux desktop font manager built with Native Rust and React 19, paired with the Fontivo-Fonts v1.0.3 curated typography collection.
+
+## Canonical Releases
+- Desktop Application: v1.0.0 (Windows Setup Installer `Fontivo-v1.0-Setup.exe`, 4.00 MB; macOS & Linux native source installer `scripts/install.sh`)
+- Fontivo-Fonts Library: v1.0.3 (10,939 unique SHA-256 deduplicated fonts across 4,430 families in 15 modular ZIP packs, 864.01 MB total)
+  - Scripts: Latin (7,146), Urdu (1,565), Persian (1,257), Arabic (971)
+
+## Core Capabilities
+- In-Memory Font Activation on Windows via Win32 `AddFontResourceExW (FR_PRIVATE)` with zero permanent Windows Registry writes.
+- Local Adobe CC Auto-Activation Bridge on `127.0.0.1:27715` for `.PSD`, `.AI`, `.INDD`, and `.PDF`.
+- Brand Color Studio with 5x5 loupe picker, live WCAG 2.1 contrast auditing, and binary `.ASE` swatch export.
+- 100% local-first, zero telemetry, zero subscriptions.
+
+## Developers
+- Eng. Ahmed Fahmy — Software Engineer (Rust Engine, Win32 APIs, Desktop & Web) — https://github.com/Ahmedfahmy8308 | https://ahmed-fahmy.engineer/
+- Eng. Mohamed Elashwah — Graphic Designer (Brand Identity, Typography, UI/UX) — https://mohamed-elashwah.me/
+
+## Official URLs & API Endpoints
+- Website (English): https://fontivo.github.io/en
+- Website (Arabic): https://fontivo.github.io/ar
+- Desktop Repository: https://github.com/Ahmedfahmy8308/Fontivo
+- Fonts Repository: https://github.com/Ahmedfahmy8308/Fontivo-Fonts
+- Static JSON Manifest API: https://fontivo.github.io/api/manifest.json
+- Sitemap: https://fontivo.github.io/sitemap.xml

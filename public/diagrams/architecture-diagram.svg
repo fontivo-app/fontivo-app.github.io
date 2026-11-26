@@ -1,0 +1,351 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" width="1200" height="780" role="img" aria-labelledby="archTitle archDesc">
+  <title id="archTitle">Fontivo Core System Architecture</title>
+  <desc id="archDesc">Clean architectural diagram of Fontivo v1.0.0: React 19 UI, Native Rust Core Engine (~38.5 MB idle RAM), Win32 AddFontResourceExW FR_PRIVATE, System Health Doctor, and Adobe CC Port 27715 synchronization.</desc>
+
+  <defs>
+    <radialGradient id="archBg" cx="50%" cy="35%" r="85%">
+      <stop offset="0%" stop-color="#291C2E"/>
+      <stop offset="65%" stop-color="#1D1322"/>
+      <stop offset="100%" stop-color="#140D17"/>
+    </radialGradient>
+    <linearGradient id="titleGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFF9F2"/>
+      <stop offset="70%" stop-color="#F5EBDD"/>
+      <stop offset="100%" stop-color="#F16B50"/>
+    </linearGradient>
+    <linearGradient id="glassCard" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF9F2" stop-opacity="0.06"/>
+      <stop offset="100%" stop-color="#B7A1D9" stop-opacity="0.02"/>
+    </linearGradient>
+    <linearGradient id="rustEngineGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#291C2E"/>
+      <stop offset="100%" stop-color="#1B1220"/>
+    </linearGradient>
+    <pattern id="archGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#FFF9F2" fill-opacity="0.04"/>
+    </pattern>
+
+    <!-- Crisp Arrow Markers (tip lands cleanly at line end) -->
+    <marker id="arrowCoral" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#F16B50"/>
+    </marker>
+    <marker id="arrowLavender" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#B7A1D9"/>
+    </marker>
+  </defs>
+
+  <style>
+  <![CDATA[
+    @keyframes flowLaser {
+      0% { stroke-dashoffset: 48; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes ringPulse1 {
+      0%, 100% { stroke-opacity: 0.35; }
+      12%, 25% { stroke-opacity: 1; }
+    }
+    @keyframes ringPulse2 {
+      0%, 25%, 100% { stroke-opacity: 0.35; }
+      37%, 50% { stroke-opacity: 1; }
+    }
+    @keyframes ringPulse3 {
+      0%, 50%, 100% { stroke-opacity: 0.35; }
+      62%, 75% { stroke-opacity: 1; }
+    }
+    @keyframes ringPulse4 {
+      0%, 75%, 100% { stroke-opacity: 0.35; }
+      87%, 98% { stroke-opacity: 1; }
+    }
+    @keyframes liveBeacon {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .flow-dash {
+      stroke-dasharray: 6 10;
+      animation: flowLaser 2.2s linear infinite;
+    }
+    .step-ring-1 { animation: ringPulse1 8s ease-in-out infinite; }
+    .step-ring-2 { animation: ringPulse2 8s ease-in-out infinite; }
+    .step-ring-3 { animation: ringPulse3 8s ease-in-out infinite; }
+    .step-ring-4 { animation: ringPulse4 8s ease-in-out infinite; }
+    .beacon { animation: liveBeacon 2.2s ease-in-out infinite; }
+
+    text {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+    }
+    .mono {
+      font-family: 'JetBrains Mono', 'Segoe UI Mono', Consolas, monospace;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  ]]>
+  </style>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="780" rx="24" fill="url(#archBg)"/>
+  <rect width="1200" height="780" rx="24" fill="url(#archGrid)"/>
+  <rect x="1" y="1" width="1198" height="778" rx="23" fill="none" stroke="#FFF9F2" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- HEADER -->
+  <g transform="translate(48, 44)">
+    <g transform="translate(0, -22) scale(0.072)">
+      <path fill="#F16B50" d="M86 177c0-67 49-116 116-116h211c14 0 22 15 14 27l-43 66H204c-31 0-53 16-69 44l-49 85z"/>
+      <path fill="#B7A1D9" d="M76 350c0-67 49-116 116-116h177c14 0 22 15 14 27l-43 66H194c-31 0-53 16-69 44l-49 85z"/>
+    </g>
+
+    <text x="48" y="4" font-size="26" font-weight="800" letter-spacing="-0.4" fill="url(#titleGrad)">
+      Fontivo Core System Architecture
+    </text>
+    <text x="48" y="28" font-size="13.5" font-weight="400" fill="#F5EBDD" fill-opacity="0.78">
+      Local-first zero-telemetry desktop architecture: React 19 UI  &#x2194;  Native Rust Core  &#x2194;  Win32 FR_PRIVATE &amp; Adobe CC :27715
+    </text>
+
+    <g transform="translate(916, -14)">
+      <rect width="188" height="32" rx="16" fill="#291C2E" stroke="#B7A1D9" stroke-opacity="0.45" stroke-width="1.2"/>
+      <circle cx="18" cy="16" r="4.5" fill="#F16B50" class="beacon"/>
+      <text x="32" y="20.5" font-size="12" font-weight="700" fill="#FFF9F2">Localhost Active :3920</text>
+    </g>
+  </g>
+
+  <!-- TOP PIPELINE: CLEAN SEGMENTED CONNECTORS (NEVER PASSING BEHIND CIRCLES) -->
+  <g transform="translate(48, 102)">
+    <rect width="1104" height="118" rx="16" fill="url(#glassCard)" stroke="#46324E" stroke-width="1.2"/>
+    <text x="24" y="24" font-size="11" font-weight="700" letter-spacing="1.2" fill="#B7A1D9" class="mono">
+      ZERO-LATENCY FONT ACTIVATION PIPELINE (10,939 FONTS / 4,430 FAMILIES)
+    </text>
+
+    <!-- 3 Segmented Connectors terminating cleanly outside each circle (r=22 + 4px gap) -->
+    <g>
+      <line x1="146" y1="62" x2="378" y2="62" stroke="#3D2B45" stroke-width="2.5"/>
+      <line x1="146" y1="62" x2="378" y2="62" stroke="#F16B50" stroke-width="2" class="flow-dash" marker-end="url(#arrowCoral)"/>
+
+      <line x1="434" y1="62" x2="666" y2="62" stroke="#3D2B45" stroke-width="2.5"/>
+      <line x1="434" y1="62" x2="666" y2="62" stroke="#F16B50" stroke-width="2" class="flow-dash" marker-end="url(#arrowCoral)"/>
+
+      <line x1="722" y1="62" x2="954" y2="62" stroke="#3D2B45" stroke-width="2.5"/>
+      <line x1="722" y1="62" x2="954" y2="62" stroke="#B7A1D9" stroke-width="2" class="flow-dash" marker-end="url(#arrowLavender)"/>
+    </g>
+
+    <!-- Step 1: Discovery (opaque fill so nothing ever bleeds through) -->
+    <g transform="translate(120, 62)">
+      <circle cx="0" cy="0" r="22" fill="#291C2E" stroke="#F16B50" stroke-width="2" class="step-ring-1"/>
+      <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF9F2" class="mono">1</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#FFF9F2">Discovery</text>
+    </g>
+
+    <!-- Step 2: Zero-Alloc Rust Parse -->
+    <g transform="translate(408, 62)">
+      <circle cx="0" cy="0" r="22" fill="#291C2E" stroke="#F16B50" stroke-width="2" class="step-ring-2"/>
+      <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF9F2" class="mono">2</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#FFF9F2">Zero-Alloc Rust Parse</text>
+    </g>
+
+    <!-- Step 3: Win32 FR_PRIVATE -->
+    <g transform="translate(696, 62)">
+      <circle cx="0" cy="0" r="22" fill="#291C2E" stroke="#B7A1D9" stroke-width="2" class="step-ring-3"/>
+      <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF9F2" class="mono">3</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#FFF9F2">AddFontResourceExW</text>
+    </g>
+
+    <!-- Step 4: Adobe CC Sync -->
+    <g transform="translate(984, 62)">
+      <circle cx="0" cy="0" r="22" fill="#291C2E" stroke="#B7A1D9" stroke-width="2" class="step-ring-4"/>
+      <text x="0" y="5" text-anchor="middle" font-size="14" font-weight="800" fill="#FFF9F2" class="mono">4</text>
+      <text x="0" y="40" text-anchor="middle" font-size="12" font-weight="700" fill="#B7A1D9">Adobe CC :27715</text>
+    </g>
+  </g>
+
+  <!-- THREE ARCHITECTURAL PILLARS (COLUMNS: 320px wide, 72px gaps) -->
+
+  <!-- COLUMN 1: PRESENTATION LAYER (x=48..368) -->
+  <g transform="translate(48, 240)">
+    <rect width="320" height="428" rx="16" fill="url(#glassCard)" stroke="#46324E" stroke-width="1.2"/>
+    <rect x="0" y="0" width="320" height="42" rx="16" fill="#291C2E"/>
+    <rect x="0" y="26" width="320" height="16" fill="#291C2E"/>
+    <line x1="0" y1="42" x2="320" y2="42" stroke="#46324E" stroke-width="1"/>
+
+    <circle cx="22" cy="21" r="4.5" fill="#B7A1D9"/>
+    <text x="34" y="26" font-size="12" font-weight="800" fill="#FFF9F2">PRESENTATION LAYER</text>
+    <text x="302" y="26" text-anchor="end" font-size="10.5" font-weight="600" fill="#B7A1D9" class="mono">REACT 19</text>
+
+    <g transform="translate(14, 56)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#B7A1D9"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">React 19 + TypeScript + Vite</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Virtualized 10,939-font / 4,430-family grid</text>
+    </g>
+
+    <g transform="translate(14, 130)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#F16B50"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Plum Ink &amp; Paper Brand System</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">High-contrast tokens, RTL/LTR optical calipers</text>
+    </g>
+
+    <g transform="translate(14, 204)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#B7A1D9"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Color Studio (5x5 Loupe)</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Pixel-accurate swatch sampling &amp; contrast</text>
+    </g>
+
+    <g transform="translate(14, 278)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#F16B50"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">System Health &amp; RAM Inspector</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Live diagnostics, cache &amp; port checks</text>
+    </g>
+
+    <g transform="translate(14, 352)">
+      <rect width="292" height="58" rx="8" fill="#1D1322" stroke="#46324E" stroke-width="1"/>
+      <text x="16" y="24" font-size="12" font-weight="600" fill="#FFF9F2">Bilingual Arabic &amp; Latin Preview</text>
+      <text x="16" y="42" font-size="10.5" fill="#B7A1D9" class="mono">60 FPS Smooth Scrolling • 0 CPU Spikes</text>
+    </g>
+  </g>
+
+  <!-- COLUMN 2: CORE ENGINE LAYER (x=440..760) -->
+  <g transform="translate(440, 240)">
+    <rect width="320" height="428" rx="16" fill="url(#rustEngineGrad)" stroke="#F16B50" stroke-opacity="0.45" stroke-width="1.4"/>
+    <rect x="0" y="0" width="320" height="42" rx="16" fill="#291C2E"/>
+    <rect x="0" y="26" width="320" height="16" fill="#291C2E"/>
+    <line x1="0" y1="42" x2="320" y2="42" stroke="#F16B50" stroke-opacity="0.35" stroke-width="1"/>
+
+    <circle cx="22" cy="21" r="4.5" fill="#F16B50"/>
+    <text x="34" y="26" font-size="12" font-weight="800" fill="#FFF9F2">NATIVE RUST CORE</text>
+    <text x="302" y="26" text-anchor="end" font-size="10.5" font-weight="600" fill="#F16B50" class="mono">PORT 3920</text>
+
+    <g transform="translate(14, 56)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#573137" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#F16B50"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Embedded HTTP API Server</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Localhost bound (127.0.0.1:3920), 0 telemetry</text>
+    </g>
+
+    <g transform="translate(14, 130)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#573137" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#B7A1D9"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Zero-Allocation ttf-parser</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Reads OTF/TTF tables directly from memory</text>
+    </g>
+
+    <g transform="translate(14, 204)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#573137" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#F16B50"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">System Health Doctor Core</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Audits GDI handles, corrupt fonts &amp; bridges</text>
+    </g>
+
+    <g transform="translate(14, 278)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#573137" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#B7A1D9"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">High-Speed Index &amp; Cache</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">10,939 fonts / 4,430 families indexed locally</text>
+    </g>
+
+    <g transform="translate(14, 352)">
+      <rect width="292" height="58" rx="8" fill="#241628" stroke="#573137" stroke-width="1"/>
+      <text x="16" y="24" font-size="12" font-weight="600" fill="#FFF9F2">Tray Daemon &amp; Directory Watcher</text>
+      <text x="16" y="42" font-size="10.5" fill="#F16B50" class="mono">~38.5 MB Idle RAM • Zero Battery Drain</text>
+    </g>
+  </g>
+
+  <!-- COLUMN 3: OS & APPLICATION HOST LAYER (x=832..1152) -->
+  <g transform="translate(832, 240)">
+    <rect width="320" height="428" rx="16" fill="url(#glassCard)" stroke="#46324E" stroke-width="1.2"/>
+    <rect x="0" y="0" width="320" height="42" rx="16" fill="#291C2E"/>
+    <rect x="0" y="26" width="320" height="16" fill="#291C2E"/>
+    <line x1="0" y1="42" x2="320" y2="42" stroke="#46324E" stroke-width="1"/>
+
+    <circle cx="22" cy="21" r="4.5" fill="#F16B50"/>
+    <text x="34" y="26" font-size="12" font-weight="800" fill="#FFF9F2">HOST &amp; CREATIVE APPS</text>
+    <text x="302" y="26" text-anchor="end" font-size="10.5" font-weight="600" fill="#B7A1D9" class="mono">WIN32 API</text>
+
+    <g transform="translate(14, 56)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#F16B50"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">AddFontResourceExW</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">FR_PRIVATE session isolation, zero disk copy</text>
+    </g>
+
+    <g transform="translate(14, 130)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#B7A1D9"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Windows DirectWrite &amp; GDI</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">WM_FONTCHANGE broadcast to host apps</text>
+    </g>
+
+    <g transform="translate(14, 204)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#F16B50"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Adobe CC Bridge (Port 27715)</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">Photoshop, Illustrator, InDesign live sync</text>
+    </g>
+
+    <g transform="translate(14, 278)">
+      <rect width="292" height="64" rx="8" fill="#140D17" stroke="#3D2B45" stroke-width="1"/>
+      <rect x="12" y="12" width="4" height="40" rx="2" fill="#B7A1D9"/>
+      <text x="26" y="28" font-size="12.5" font-weight="700" fill="#FFF9F2">Local-First Vault Storage</text>
+      <text x="26" y="46" font-size="10.5" fill="#F5EBDD" fill-opacity="0.72">%LOCALAPPDATA%/Fontivo (100% Offline)</text>
+    </g>
+
+    <g transform="translate(14, 352)">
+      <rect width="292" height="58" rx="8" fill="#1D1322" stroke="#3D2B45" stroke-width="1"/>
+      <text x="16" y="24" font-size="12" font-weight="600" fill="#FFF9F2">Windows Protocol Handler (fontivo://)</text>
+      <text x="16" y="42" font-size="10.5" fill="#B7A1D9" class="mono">One-click web install &amp; pack activation</text>
+    </g>
+  </g>
+
+  <!-- COMPLETE, FULL-SPAN BI-DIRECTIONAL ARROWS IN 72PX COLUMN GAPS -->
+  <g>
+    <!-- Gap 1 (x=368..440) -->
+    <line x1="370" y1="342" x2="434" y2="342" stroke="#3D2B45" stroke-width="2"/>
+    <line x1="370" y1="342" x2="434" y2="342" stroke="#F16B50" stroke-width="2.2" class="flow-dash" marker-end="url(#arrowCoral)"/>
+    <rect x="374" y="314" width="60" height="19" rx="5" fill="#1D1322" stroke="#F16B50" stroke-opacity="0.45" stroke-width="1"/>
+    <text x="404" y="327" text-anchor="middle" font-size="8.5" font-weight="700" fill="#F16B50" class="mono">REST API</text>
+
+    <line x1="438" y1="454" x2="374" y2="454" stroke="#3D2B45" stroke-width="2"/>
+    <line x1="438" y1="454" x2="374" y2="454" stroke="#B7A1D9" stroke-width="2.2" class="flow-dash" marker-end="url(#arrowLavender)"/>
+    <rect x="374" y="464" width="60" height="19" rx="5" fill="#1D1322" stroke="#B7A1D9" stroke-opacity="0.45" stroke-width="1"/>
+    <text x="404" y="477" text-anchor="middle" font-size="8.5" font-weight="700" fill="#B7A1D9" class="mono">EVENTS</text>
+
+    <!-- Gap 2 (x=760..832) -->
+    <line x1="762" y1="342" x2="826" y2="342" stroke="#3D2B45" stroke-width="2"/>
+    <line x1="762" y1="342" x2="826" y2="342" stroke="#F16B50" stroke-width="2.2" class="flow-dash" marker-end="url(#arrowCoral)"/>
+    <rect x="766" y="314" width="60" height="19" rx="5" fill="#1D1322" stroke="#F16B50" stroke-opacity="0.45" stroke-width="1"/>
+    <text x="796" y="327" text-anchor="middle" font-size="8.5" font-weight="700" fill="#F16B50" class="mono">WIN32</text>
+
+    <line x1="762" y1="454" x2="826" y2="454" stroke="#3D2B45" stroke-width="2"/>
+    <line x1="762" y1="454" x2="826" y2="454" stroke="#B7A1D9" stroke-width="2.2" class="flow-dash" marker-end="url(#arrowLavender)"/>
+    <rect x="766" y="464" width="60" height="19" rx="5" fill="#1D1322" stroke="#B7A1D9" stroke-opacity="0.45" stroke-width="1"/>
+    <text x="796" y="477" text-anchor="middle" font-size="8.5" font-weight="700" fill="#B7A1D9" class="mono">:27715</text>
+  </g>
+
+  <!-- FOOTER -->
+  <g transform="translate(48, 694)">
+    <rect width="1104" height="48" rx="12" fill="#1D1322" stroke="#46324E" stroke-width="1"/>
+
+    <g transform="translate(28, 14)">
+      <circle cx="10" cy="10" r="4" fill="#F16B50"/>
+      <text x="22" y="14" font-size="11.5" font-weight="700" fill="#FFF9F2">100% Local-First</text>
+      <text x="134" y="14" font-size="11" fill="#B7A1D9">— Zero telemetry • ~38.5 MB RAM</text>
+    </g>
+
+    <g transform="translate(402, 14)">
+      <circle cx="10" cy="10" r="4" fill="#B7A1D9"/>
+      <text x="22" y="14" font-size="11.5" font-weight="700" fill="#FFF9F2">Win32 FR_PRIVATE</text>
+      <text x="144" y="14" font-size="11" fill="#B7A1D9">— Zero registry or disk clutter</text>
+    </g>
+
+    <g transform="translate(776, 14)">
+      <circle cx="10" cy="10" r="4" fill="#F16B50"/>
+      <text x="22" y="14" font-size="11.5" font-weight="700" fill="#FFF9F2">Adobe CC :27715</text>
+      <text x="132" y="14" font-size="11" fill="#B7A1D9">— Photoshop &amp; Illustrator sync</text>
+    </g>
+  </g>
+</svg>
