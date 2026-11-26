@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Download, Library } from "lucide-react";
 import { FONTIVO_VERSION_TAG } from "@/config/version";
+import { assetPath } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { useTranslation, localePath } from "@/context/LanguageContext";
@@ -38,7 +39,7 @@ export function Hero() {
           {/* Compact Version Badge with Animated Brand Mark */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 rounded-full border border-brand-coral/35 bg-brand-surface-200/90 px-3.5 py-1.5 shadow-sm">
             <Image
-              src="/brand/fontivo-mark-animated.svg"
+              src={assetPath("/brand/fontivo-mark-animated.svg")}
               alt="Fontivo"
               width={18}
               height={18}

@@ -56,7 +56,11 @@ describe("FontPackageSection & DevelopersSection Components", () => {
       "https://github.com/Ahmedfahmy8308/Fontivo-Fonts",
     );
 
-    const siteLink = screen.getByRole("link", { name: /fontivo\.github\.io/i });
-    expect(siteLink.getAttribute("href")).toBe("https://fontivo.github.io");
+    const siteLink = screen.getByRole("link", {
+      name: /ahmedfahmy8308\.github\.io\/Fontivo-Site/i,
+    });
+    expect(siteLink.getAttribute("href")).toBe(
+      "https://ahmedfahmy8308.github.io/Fontivo-Site",
+    );
   });
 });

@@ -7,7 +7,7 @@ import { Menu, X, Github, Download } from "lucide-react";
 import { FONTIVO_VERSION_TAG } from "@/config/version";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import { useTranslation, localePath } from "@/context/LanguageContext";
 import { LanguageSwitcher } from "@/components/common/LanguageSwitcher";
 
@@ -66,7 +66,7 @@ export function Navbar() {
         >
           <div className="relative flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-brand-surface-200 border border-brand-border-subtle shadow-sm p-1.5">
             <Image
-              src="/brand/fontivo-mark.svg"
+              src={assetPath("/brand/fontivo-mark.svg")}
               alt="Fontivo"
               width={24}
               height={24}

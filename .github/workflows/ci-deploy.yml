@@ -37,6 +37,9 @@ jobs:
         run: npm test
 
       - name: Build static export
+        env:
+          NEXT_PUBLIC_BASE_PATH: /Fontivo-Site
+          NEXT_PUBLIC_SITE_URL: https://ahmedfahmy8308.github.io/Fontivo-Site
         run: npm run build
 
       - name: Upload static site artifact

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { footerNavigation } from "@/config/navigation";
 import { Container } from "@/components/ui/Container";
 import { useTranslation, localePath } from "@/context/LanguageContext";
+import { assetPath } from "@/lib/utils";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -56,7 +57,7 @@ export function Footer() {
             >
               <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-surface-200 border border-brand-border-subtle p-1.5 shrink-0">
                 <Image
-                  src="/brand/fontivo-mark.svg"
+                  src={assetPath("/brand/fontivo-mark.svg")}
                   alt="Fontivo"
                   width={24}
                   height={24}

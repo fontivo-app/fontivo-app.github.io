@@ -17,7 +17,7 @@ import {
 import { Feature } from "@/config/features";
 import { coreFeaturesAr } from "@/config/featuresAr";
 import { Badge } from "@/components/ui/Badge";
-import { cn } from "@/lib/utils";
+import { cn, assetPath } from "@/lib/utils";
 import { evaluateWcagContrast } from "@/lib/wcag";
 import { useTranslation } from "@/context/LanguageContext";
 
@@ -376,7 +376,7 @@ export function FeaturesClient({ features }: FeaturesClientProps) {
         <div className="space-y-8">
           <div className="rounded-xl border border-brand-border-subtle bg-brand-plum-dark p-3 overflow-hidden">
             <img
-              src="/diagrams/fontivo-hero-demo.svg"
+              src={assetPath("/diagrams/fontivo-hero-demo.svg")}
               alt="Fontivo Desktop Studio Interactive Demo"
               className="w-full h-auto rounded-lg"
             />
@@ -385,14 +385,14 @@ export function FeaturesClient({ features }: FeaturesClientProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="rounded-xl border border-brand-border-subtle bg-brand-plum-dark p-3 overflow-hidden">
               <img
-                src="/diagrams/architecture-diagram.svg"
+                src={assetPath("/diagrams/architecture-diagram.svg")}
                 alt="Fontivo Core System Architecture"
                 className="w-full h-auto rounded-lg"
               />
             </div>
             <div className="rounded-xl border border-brand-border-subtle bg-brand-plum-dark p-3 overflow-hidden">
               <img
-                src="/diagrams/benchmarks.svg"
+                src={assetPath("/diagrams/benchmarks.svg")}
                 alt="Fontivo Performance Benchmarks"
                 className="w-full h-auto rounded-lg"
               />

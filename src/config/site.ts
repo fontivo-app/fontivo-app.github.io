@@ -28,6 +28,11 @@ export interface DeveloperProfile {
   initials: string;
 }
 
+const resolvedSiteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  "https://ahmedfahmy8308.github.io/Fontivo-Site"
+).replace(/\/+$/, "");
+
 export const siteConfig = {
   name: "Fontivo",
   shortName: "Fontivo",
@@ -36,13 +41,13 @@ export const siteConfig = {
   fontsReleaseTag: FONTIVO_FONTS_VERSION_TAG,
   title: "Fontivo — Type. Design. Deliver.",
   description: `Lightweight Windows, macOS & Linux desktop font manager (${FONTIVO_VERSION_TAG}) & ${FONTIVO_FONTS_TOTAL}-font library (${FONTIVO_FONTS_VERSION_TAG}) built with Native Rust & React 19. Activate fonts in RAM with zero registry bloat. 100% Free & Open Source.`,
-  url: "https://fontivo.github.io",
-  ogImage: "/brand/og-image.png",
+  url: resolvedSiteUrl,
+  ogImage: `${resolvedSiteUrl}/brand/og-image.png`,
   links: {
     github: `https://github.com/${FONTIVO_GITHUB_REPO}`,
     fontsGithub: `https://github.com/${FONTIVO_FONTS_REPO}`,
     fontsLatestRelease: FONTIVO_FONTS_RELEASE_URL,
-    website: "https://fontivo.github.io",
+    website: resolvedSiteUrl,
     releases: `https://github.com/${FONTIVO_GITHUB_REPO}/releases`,
     latestRelease: GITHUB_LATEST_RELEASE_URL,
     docs: "/docs",

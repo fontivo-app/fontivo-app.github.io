@@ -9,6 +9,7 @@ import React, {
   useCallback,
 } from "react";
 import { Locale, Translations, locales, en } from "@/locales";
+import { stripBasePath } from "@/lib/utils";
 
 export function localePath(locale: Locale, path: string): string {
   if (!path) return `/${locale}`;
@@ -137,8 +138,9 @@ export function LanguageProvider({
     }
 
     try {
-      const pathname =
-        typeof window !== "undefined" ? window.location.pathname : "";
+      const pathname = stripBasePath(
+        typeof window !== "undefined" ? window.location.pathname : "",
+      );
       if (pathname === "/ar" || pathname.startsWith("/ar/")) {
         setLocaleState("ar");
         applyDocumentLocale("ar");

@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Sora, Tajawal } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
+import { assetPath, BASE_PATH } from "@/lib/utils";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -48,14 +49,14 @@ export const metadata: Metadata = {
     { name: "Eng. Mohamed Elashwah", url: siteConfig.links.designerPortfolio },
   ],
   creator: siteConfig.creator,
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL(`${siteConfig.url}/`),
   icons: {
     icon: [
-      { url: "/favicon.ico" },
-      { url: "/brand/icon.ico" },
-      { url: "/brand/fontivo-icon.svg", type: "image/svg+xml" },
+      { url: assetPath("/favicon.ico") },
+      { url: assetPath("/brand/icon.ico") },
+      { url: assetPath("/brand/fontivo-icon.svg"), type: "image/svg+xml" },
     ],
-    apple: [{ url: "/brand/fontivo-icon.png" }],
+    apple: [{ url: assetPath("/brand/fontivo-icon.png") }],
   },
   openGraph: {
     type: "website",
@@ -125,7 +126,7 @@ const softwareJsonLd = {
   license: "https://opensource.org/licenses/MIT",
 };
 
-const localeInitScript = `(function(){try{var path=window.location.pathname||"";var l=(path==="/ar"||path.indexOf("/ar/")===0)?"ar":((path==="/en"||path.indexOf("/en/")===0)?"en":null);if(!l){var s=window.localStorage.getItem("fontivo_locale");var n=(window.navigator.language||"").toLowerCase();l=(s==="ar"||s==="en")?s:(n.indexOf("ar")===0?"ar":"en");}document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";}catch(e){}})();`;
+const localeInitScript = `(function(){try{var base=${JSON.stringify(BASE_PATH)};var path=window.location.pathname||"";if(base&&(path===base||path.indexOf(base+"/")===0)){path=path.slice(base.length)||"/";}var l=(path==="/ar"||path.indexOf("/ar/")===0)?"ar":((path==="/en"||path.indexOf("/en/")===0)?"en":null);if(!l){var s=window.localStorage.getItem("fontivo_locale");var n=(window.navigator.language||"").toLowerCase();l=(s==="ar"||s==="en")?s:(n.indexOf("ar")===0?"ar":"en");}document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";}catch(e){}})();`;
 
 export default function RootLayout({
   children,

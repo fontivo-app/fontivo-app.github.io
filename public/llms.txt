@@ -18,10 +18,10 @@
 - Eng. Mohamed Elashwah — Graphic Designer (Brand Identity, Typography, UI/UX) — https://mohamed-elashwah.me/
 
 ## Official URLs & API Endpoints
-- Website (English): https://fontivo.github.io/en
-- Website (Arabic): https://fontivo.github.io/ar
+- Website (English): https://ahmedfahmy8308.github.io/Fontivo-Site/en
+- Website (Arabic): https://ahmedfahmy8308.github.io/Fontivo-Site/ar
 - Desktop Repository: https://github.com/Ahmedfahmy8308/Fontivo
 - Fonts Repository: https://github.com/Ahmedfahmy8308/Fontivo-Fonts
 - Site Repository: https://github.com/Ahmedfahmy8308/Fontivo-Site
-- Static JSON Manifest API: https://fontivo.github.io/api/manifest.json
-- Sitemap: https://fontivo.github.io/sitemap.xml
+- Static JSON Manifest API: https://ahmedfahmy8308.github.io/Fontivo-Site/api/manifest.json
+- Sitemap: https://ahmedfahmy8308.github.io/Fontivo-Site/sitemap.xml

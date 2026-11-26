@@ -1,7 +1,7 @@
 # Fontivo-Site — Agent & Architecture Guide
 
 ## 1. Repository Scope & Mission
-- **Repository:** [Ahmedfahmy8308/Fontivo-Site](https://github.com/Ahmedfahmy8308/Fontivo-Site) (Live: `https://fontivo.github.io`)
+- **Repository:** [Ahmedfahmy8308/Fontivo-Site](https://github.com/Ahmedfahmy8308/Fontivo-Site) (Live: `https://ahmedfahmy8308.github.io/Fontivo-Site/`)
 - **Role:** Static-exported Next.js 15 marketing, documentation, SEO/GEO, and download portal for Fontivo Desktop and Fontivo-Fonts.
 - **Developers:**
   - **Eng. Ahmed Fahmy** — Technology & Programming ([GitHub](https://github.com/Ahmedfahmy8308) • [Portfolio](https://ahmed-fahmy.engineer/))

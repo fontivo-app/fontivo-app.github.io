@@ -16,6 +16,7 @@ import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { useTranslation } from "@/context/LanguageContext";
 import { evaluateWcagContrast } from "@/lib/wcag";
+import { assetPath } from "@/lib/utils";
 
 type WorkspaceTab = "library" | "bridge" | "color";
 
@@ -100,7 +101,7 @@ export function ProductPreview() {
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-brand-border-subtle bg-brand-plum px-4 py-3">
             <div className="flex items-center gap-2.5 min-w-0">
               <Image
-                src="/brand/fontivo-mark.svg"
+                src={assetPath("/brand/fontivo-mark.svg")}
                 alt="Fontivo"
                 width={18}
                 height={18}
