@@ -309,6 +309,53 @@ export function DownloadClient({ release, fontStats }: DownloadClientProps) {
                 gh attestation verify .\Fontivo-v1.0-Setup.exe --owner
                 Ahmedfahmy8308
               </code>
+              <p className="text-[11px] text-brand-text-muted pt-1 leading-relaxed">
+                {isAr ? (
+                  <>
+                    توقيع الشيفرة المجاني للمشاريع مفتوحة المصدر مقدّم عبر{" "}
+                    <a
+                      href="https://signpath.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-coral-light underline underline-offset-2"
+                    >
+                      SignPath.io
+                    </a>
+                    ، والشهادة عبر{" "}
+                    <a
+                      href="https://signpath.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-lavender-light underline underline-offset-2"
+                    >
+                      SignPath Foundation
+                    </a>
+                    .
+                  </>
+                ) : (
+                  <>
+                    Free code signing provided by{" "}
+                    <a
+                      href="https://signpath.io/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-coral-light underline underline-offset-2"
+                    >
+                      SignPath.io
+                    </a>
+                    , certificate by{" "}
+                    <a
+                      href="https://signpath.org/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-lavender-light underline underline-offset-2"
+                    >
+                      SignPath Foundation
+                    </a>
+                    .
+                  </>
+                )}
+              </p>
             </div>
           </>
         ) : (
