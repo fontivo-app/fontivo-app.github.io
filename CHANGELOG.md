@@ -5,6 +5,11 @@ All notable changes to **Fontivo-Site** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2026-11-26
+
+### Updated
+- Synchronized Desktop Application SSOT (`src/config/version.ts`, `src/config/releases.ts`, `public/api/manifest.json`, `public/llms.txt`, `package.json`) to **Fontivo v1.1.3** (`4,714,598` bytes / `4.50 MB`, verified SHA-256 checksum) highlighting the Workspace Brand Builder, segmented Local & Custom font organization, and UpdaterModal UI alignment updates.
+
 ## [1.1.2] - 2026-11-26
 
 ### Updated

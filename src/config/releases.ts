@@ -375,11 +375,11 @@ export const currentRelease: ReleaseInfo = {
     {
       category: "Desktop App",
       items: [
-        "Unified Windows AppData directory structure (Fonts/Imported, Updates, Downloads, Backups, Roaming preferences) with upfront Inno Setup initialization",
-        "Methodical font & folder import pipeline with OpenType pre-validation, SHA-256 deduplication, and organized collection grouping",
-        "Accurate Windows Fonts backup counting (including reboot-scheduled locked fonts), backup deletion, and responsive Portal modals",
-        "Fontivo v2.0 Plum Ink & Coral visual identity across native window and UI with instant FR_PRIVATE RAM font activation",
-        "Protected Win10/11 inbox & regional system fonts plus built-in Adobe CC bridge and .ASE palette export",
+        "Ergonomic Workspace Brand Builder with custom font roles synced into Fonts/ and RAM, dynamic color palette rows in Create & Edit modals, target deadlines, and RTL-safe layout",
+        "Redesigned brand swatch cards, task due-date countdowns & priorities, 7 one-click brand folder templates, pinned assets, StyleGuide.html launcher, and safe open-file / subfolder delete APIs",
+        "Segmented Local & Custom library tabs (Custom, Imported Folders, Cloud Packs, Google Offline) with clickable folder chips and sandboxed folder deletion",
+        "Balanced UpdaterModal status banner and single-line action toolbar with resilient Fontivo-Site manifest fallback",
+        "Instant FR_PRIVATE RAM font activation, built-in Adobe CC loopback bridge, and .ASE palette export across Windows, macOS, and Linux",
       ],
     },
     {
