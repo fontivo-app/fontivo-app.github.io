@@ -377,6 +377,7 @@ export const currentRelease: ReleaseInfo = {
       items: [
         "Fontivo v2.0 Plum Ink & Coral visual identity across native window and UI",
         "Instant RAM font activation with automatic cleanup on app close",
+        "Protected Win10/11 inbox & regional system fonts plus reboot-scheduled cleanup for locked external fonts",
         "Fixed GitHub release redirect CDN allowlist & added animated per-card cloud pack download telemetry",
         "Updated built-in catalog and v1.0.3 cloud packs downloader",
       ],
