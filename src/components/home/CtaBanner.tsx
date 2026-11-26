@@ -9,13 +9,8 @@ import {
   ArrowLeft,
   Terminal,
 } from "lucide-react";
-import {
-  FONTIVO_INSTALLER_FILENAME,
-  FONTIVO_INSTALLER_SIZE_FORMATTED,
-  FONTIVO_INSTALLER_SHA256,
-  FONTIVO_INSTALLER_DOWNLOAD_URL,
-  UNIX_INSTALL_CMD,
-} from "@/config/version";
+import { UNIX_INSTALL_CMD } from "@/config/version";
+import { useLatestRelease } from "@/hooks/useLatestRelease";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { useTranslation, localePath } from "@/context/LanguageContext";
@@ -23,6 +18,12 @@ import { useTranslation, localePath } from "@/context/LanguageContext";
 export function CtaBanner() {
   const { t, locale, isRTL } = useTranslation();
   const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const latestRelease = useLatestRelease();
+  const installerAsset = latestRelease.assets[0];
+  const installerFilename = installerAsset?.filename || "Fontivo-Setup.exe";
+  const installerSize = installerAsset?.sizeFormatted || "4.31 MB";
+  const installerSha = installerAsset?.sha256 || "";
+  const installerUrl = installerAsset?.downloadUrl || "#";
 
   const handleCopy = (val: string, id: string) => {
     navigator.clipboard.writeText(val);
@@ -55,7 +56,7 @@ export function CtaBanner() {
                     {t("cta.installerTitle")}
                   </h3>
                   <span className="font-mono text-xs text-brand-coral-light ltr-isolate shrink-0">
-                    {FONTIVO_INSTALLER_SIZE_FORMATTED}
+                    {installerSize}
                   </span>
                 </div>
                 <p className="text-xs sm:text-sm text-brand-text-secondary">
@@ -65,25 +66,23 @@ export function CtaBanner() {
 
               <div className="space-y-2.5">
                 <Button
-                  href={FONTIVO_INSTALLER_DOWNLOAD_URL}
+                  href={installerUrl}
                   external
                   variant="primary"
                   size="md"
                   className="w-full"
                 >
                   <Download className="h-4 w-4" />
-                  <span className="ltr-isolate">
-                    {FONTIVO_INSTALLER_FILENAME}
-                  </span>
+                  <span className="ltr-isolate">{installerFilename}</span>
                 </Button>
 
                 <button
                   type="button"
-                  onClick={() => handleCopy(FONTIVO_INSTALLER_SHA256, "setup")}
+                  onClick={() => handleCopy(installerSha, "setup")}
                   className="w-full flex items-center justify-between gap-2 rounded-lg border border-brand-border-subtle bg-brand-surface-100 px-3 py-1.5 text-xs font-mono text-brand-text-muted hover:text-white transition-colors"
                 >
                   <span className="truncate ltr-isolate">
-                    SHA-256: {FONTIVO_INSTALLER_SHA256.slice(0, 14)}...
+                    SHA-256: {installerSha.slice(0, 14)}...
                   </span>
                   <span className="inline-flex items-center gap-1 shrink-0 text-brand-coral-light">
                     {copiedKey === "setup" ? (

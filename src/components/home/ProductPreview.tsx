@@ -10,7 +10,7 @@ import {
   CheckCircle2,
   Power,
 } from "lucide-react";
-import { FONTIVO_VERSION_TAG } from "@/config/version";
+import { useLatestRelease } from "@/hooks/useLatestRelease";
 import { Container } from "@/components/ui/Container";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
@@ -111,7 +111,7 @@ export function ProductPreview() {
                 Fontivo
               </span>
               <span className="font-mono text-xs text-brand-lavender-light ltr-isolate">
-                {FONTIVO_VERSION_TAG}
+                {useLatestRelease().tag}
               </span>
             </div>
 

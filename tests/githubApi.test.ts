@@ -156,4 +156,41 @@ describe("GitHub API Client & Release Manifest Integration", () => {
     expect(stats.totalDownloads).toBe(500 + 750 + 1200);
     expect(stats.totalPacks).toBe(15);
   });
+
+  it("getLatestRelease({ noStore: true }) extracts Fontivo-Setup.exe and SHA-256 digest cleanly", async () => {
+    const digest = "a".repeat(64);
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: vi.fn().mockResolvedValue({
+        tag_name: "v1.0.9",
+        name: "Fontivo v1.0.9",
+        body: "Live release",
+        published_at: "2026-12-01T00:00:00Z",
+        html_url:
+          "https://github.com/Ahmedfahmy8308/Fontivo/releases/tag/v1.0.9",
+        assets: [
+          {
+            name: "Fontivo-Setup.exe",
+            size: 5242880,
+            digest: `sha256:${digest}`,
+            download_count: 10,
+            browser_download_url:
+              "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.0.9/Fontivo-Setup.exe",
+          },
+        ],
+      }),
+    });
+    global.fetch = fetchMock;
+
+    const release = await getLatestRelease({ noStore: true });
+    expect(fetchMock).toHaveBeenCalledWith(
+      expect.stringContaining("/releases/latest"),
+      expect.objectContaining({ cache: "no-store" }),
+    );
+    expect(release.version).toBe("1.0.9");
+    expect(release.tag).toBe("v1.0.9");
+    expect(release.assets[0].filename).toBe("Fontivo-Setup.exe");
+    expect(release.assets[0].sha256).toBe(digest);
+    expect(release.assets[0].sizeFormatted).toBe("5.00 MB");
+  });
 });

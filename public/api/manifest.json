@@ -3,15 +3,15 @@
   "license": "MIT",
   "website": "https://ahmedfahmy8308.github.io/Fontivo-Site",
   "desktop": {
-    "version": "1.0.0",
-    "tag": "v1.0.0",
+    "version": "1.0.3",
+    "tag": "v1.0.3",
     "platforms": {
       "windows": {
-        "installer": "Fontivo-v1.0-Setup.exe",
-        "sizeBytes": 4509405,
-        "sizeFormatted": "4.30 MB",
-        "sha256": "cf60e7691f5f86861b9ad6a8bfd028e55a7ec3cfef582ada5610c5c0f7c22fe2",
-        "downloadUrl": "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.0.0/Fontivo-v1.0-Setup.exe"
+        "installer": "Fontivo-Setup.exe",
+        "sizeBytes": 4601695,
+        "sizeFormatted": "4.39 MB",
+        "sha256": "038c39dac277468316065daa7236a8c45cf9d8d586745fc8e91f005da7780082",
+        "downloadUrl": "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.0.3/Fontivo-Setup.exe"
       },
       "macos": {
         "method": "install.sh",

@@ -4,6 +4,7 @@ import React from "react";
 import Image from "next/image";
 import { Download, Library } from "lucide-react";
 import { FONTIVO_VERSION_TAG } from "@/config/version";
+import { useLatestRelease } from "@/hooks/useLatestRelease";
 import { assetPath } from "@/lib/utils";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
@@ -11,6 +12,12 @@ import { useTranslation, localePath } from "@/context/LanguageContext";
 
 export function Hero() {
   const { t, locale } = useTranslation();
+  const latestRelease = useLatestRelease();
+  const liveTag = latestRelease.tag;
+  const badgeText = t(
+    "hero.badge",
+    `Fontivo ${liveTag} • Windows 10 / 11`,
+  ).replace(FONTIVO_VERSION_TAG, liveTag);
 
   const stats = [
     {
@@ -48,10 +55,7 @@ export function Hero() {
               unoptimized
             />
             <span className="font-mono text-xs font-semibold text-brand-coral-light ltr-isolate">
-              {t(
-                "hero.badge",
-                `Fontivo ${FONTIVO_VERSION_TAG} • Windows 10 / 11`,
-              )}
+              {badgeText}
             </span>
           </div>
 
@@ -79,7 +83,7 @@ export function Hero() {
               <Download className="h-5 w-5" />
               <span>{t("hero.ctaDownload")}</span>
               <span className="font-mono text-xs opacity-80 ltr-isolate">
-                ({FONTIVO_VERSION_TAG})
+                ({liveTag})
               </span>
             </Button>
 

@@ -4,7 +4,7 @@ import * as React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X, Github, Download } from "lucide-react";
-import { FONTIVO_VERSION_TAG } from "@/config/version";
+import { useLatestRelease } from "@/hooks/useLatestRelease";
 import { siteConfig } from "@/config/site";
 import { Button } from "@/components/ui/Button";
 import { cn, assetPath } from "@/lib/utils";
@@ -15,6 +15,8 @@ export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
   const { t, locale } = useTranslation();
+  const latestRelease = useLatestRelease();
+  const liveTag = latestRelease.tag;
 
   React.useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 16);
@@ -79,7 +81,7 @@ export function Navbar() {
               Fontivo
             </span>
             <span className="font-mono text-[11px] text-brand-text-muted mt-0.5 leading-none ltr-isolate">
-              {FONTIVO_VERSION_TAG}
+              {liveTag}
             </span>
           </div>
         </Link>

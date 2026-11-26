@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { ReleaseInfo, fontPacksSummary } from "@/config/releases";
 import { FontRepoStats } from "@/lib/github";
+import { useLatestRelease } from "@/hooks/useLatestRelease";
 import { siteConfig } from "@/config/site";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
@@ -52,7 +53,11 @@ const SCRIPT_LABELS: Record<string, { en: string; ar: string }> = {
   multilingual: { en: "Multilingual", ar: "متعدد اللغات" },
 };
 
-export function DownloadClient({ release, fontStats }: DownloadClientProps) {
+export function DownloadClient({
+  release: initialRelease,
+  fontStats,
+}: DownloadClientProps) {
+  const release = useLatestRelease(initialRelease);
   const { t, locale } = useTranslation();
   const isAr = locale === "ar";
   const [targetOs, setTargetOs] = React.useState<TargetOS>("windows");
@@ -82,7 +87,7 @@ export function DownloadClient({ release, fontStats }: DownloadClientProps) {
   };
 
   const installerAsset = release.assets[0];
-  const verifyCmd = `Get-FileHash .\\${installerAsset?.filename || "Fontivo-v1.0-Setup.exe"} -Algorithm SHA256`;
+  const verifyCmd = `Get-FileHash .\\${installerAsset?.filename || "Fontivo-Setup.exe"} -Algorithm SHA256`;
 
   const filteredPacks = React.useMemo(() => {
     const q = searchQuery.toLowerCase().trim();
@@ -306,7 +311,8 @@ export function DownloadClient({ release, fontStats }: DownloadClientProps) {
                   : 'Because Fontivo is 100% free open-source software without a paid commercial EV certificate, Windows may show "Windows protected your PC". After verifying the SHA-256 above, click "More info" -> "Run anyway", or verify official GitHub SLSA build provenance:'}
               </p>
               <code className="block font-mono text-[11px] sm:text-xs text-brand-lavender-light bg-brand-plum-dark border border-brand-border-subtle rounded-lg px-3 py-2 break-all ltr-isolate">
-                gh attestation verify .\Fontivo-v1.0-Setup.exe --owner
+                gh attestation verify .\
+                {installerAsset?.filename || "Fontivo-Setup.exe"} --owner
                 Ahmedfahmy8308
               </code>
               <p className="text-[11px] text-brand-text-muted pt-1 leading-relaxed">
