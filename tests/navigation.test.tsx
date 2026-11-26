@@ -4,13 +4,14 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { footerNavigation } from "@/config/navigation";
+import { FONTIVO_VERSION_TAG } from "@/config/version";
 
 describe("Navigation & Layout Components", () => {
   it("renders Navbar brand logo, version tag, and all 5 primary navigation links", () => {
     render(<Navbar />);
 
     expect(screen.getByText("Fontivo")).toBeDefined();
-    expect(screen.getByText("v1.0.0")).toBeDefined();
+    expect(screen.getByText(FONTIVO_VERSION_TAG)).toBeDefined();
 
     expect(screen.getByRole("link", { name: /^Home$/i })).toBeDefined();
     expect(screen.getByRole("link", { name: /^Features$/i })).toBeDefined();

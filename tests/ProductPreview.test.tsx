@@ -2,13 +2,14 @@ import React from "react";
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { ProductPreview } from "@/components/home/ProductPreview";
+import { FONTIVO_VERSION_TAG } from "@/config/version";
 
 describe("ProductPreview Component", () => {
   it("renders the workspace preview frame with Font Library active by default", () => {
     render(<ProductPreview />);
 
     expect(screen.getByText("Fontivo")).toBeDefined();
-    expect(screen.getByText("v1.0.0")).toBeDefined();
+    expect(screen.getByText(FONTIVO_VERSION_TAG)).toBeDefined();
     expect(screen.getByText("Sora Bold")).toBeDefined();
     expect(screen.getByText("Tajawal")).toBeDefined();
   });

@@ -5,6 +5,7 @@ import {
   getStaticRelease,
 } from "@/lib/github";
 import { currentRelease, fontPackPackages } from "@/config/releases";
+import { FONTIVO_VERSION, FONTIVO_VERSION_TAG } from "@/config/version";
 
 describe("GitHub API Client & Release Manifest Integration", () => {
   const originalFetch = global.fetch;
@@ -20,8 +21,8 @@ describe("GitHub API Client & Release Manifest Integration", () => {
   it("getStaticRelease() returns currentRelease static manifest snapshot synchronously", () => {
     const release = getStaticRelease();
     expect(release).toBeDefined();
-    expect(release.version).toBe("1.0.0");
-    expect(release.tag).toBe("v1.0.0");
+    expect(release.version).toBe(FONTIVO_VERSION);
+    expect(release.tag).toBe(FONTIVO_VERSION_TAG);
     expect(release.assets.length).toBe(1);
     expect(release.assets[0].sizeFormatted).toBe(
       currentRelease.assets[0].sizeFormatted,
@@ -81,8 +82,8 @@ describe("GitHub API Client & Release Manifest Integration", () => {
     const release = await getLatestRelease();
 
     expect(release).toEqual(currentRelease);
-    expect(release.version).toBe("1.0.0");
-    expect(release.tag).toBe("v1.0.0");
+    expect(release.version).toBe(FONTIVO_VERSION);
+    expect(release.tag).toBe(FONTIVO_VERSION_TAG);
   });
 
   it("getLatestRelease() gracefully falls back to static release snapshot on network failure / offline", async () => {
@@ -93,7 +94,7 @@ describe("GitHub API Client & Release Manifest Integration", () => {
     const release = await getLatestRelease();
 
     expect(release).toEqual(currentRelease);
-    expect(release.version).toBe("1.0.0");
+    expect(release.version).toBe(FONTIVO_VERSION);
   });
 
   it("getFontRepoStats() returns all 15 packages with font counts on fallback", async () => {
