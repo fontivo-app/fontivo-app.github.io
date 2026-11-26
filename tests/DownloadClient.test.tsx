@@ -19,6 +19,10 @@ const mockFontStats: FontRepoStats = {
 describe("DownloadClient Component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    Object.defineProperty(window.navigator, "userAgent", {
+      value: "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      configurable: true,
+    });
   });
 
   it("syncs all 15 font packs with exact v1.0.3 manifest totals (10,939 fonts & 905,982,558 bytes)", () => {
