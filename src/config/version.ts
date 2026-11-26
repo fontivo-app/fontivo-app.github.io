@@ -25,10 +25,10 @@ export const FONTIVO_FONTS_RELEASE_URL = `https://github.com/${FONTIVO_FONTS_REP
 
 /** Windows Installer Binary */
 export const FONTIVO_INSTALLER_FILENAME = `Fontivo-v${FONTIVO_MAJOR_MINOR}-Setup.exe`;
-export const FONTIVO_INSTALLER_SIZE_BYTES = 4201214;
-export const FONTIVO_INSTALLER_SIZE_FORMATTED = "4.01 MB";
+export const FONTIVO_INSTALLER_SIZE_BYTES = 4509405;
+export const FONTIVO_INSTALLER_SIZE_FORMATTED = "4.30 MB";
 export const FONTIVO_INSTALLER_SHA256 =
-  "11d8305bb220c54394d8a718e51cb4cd87d343f85d7fd74d3cb5cc41915b1a57";
+  "cf60e7691f5f86861b9ad6a8bfd028e55a7ec3cfef582ada5610c5c0f7c22fe2";
 
 export const GITHUB_RELEASES_BASE = `https://github.com/${FONTIVO_GITHUB_REPO}/releases/download/${FONTIVO_VERSION_TAG}`;
 export const GITHUB_LATEST_RELEASE_URL = `https://github.com/${FONTIVO_GITHUB_REPO}/releases/latest`;
