@@ -375,11 +375,11 @@ export const currentRelease: ReleaseInfo = {
     {
       category: "Desktop App",
       items: [
-        "Fontivo v2.0 Plum Ink & Coral visual identity across native window and UI",
-        "Instant RAM font activation with automatic cleanup on app close",
-        "Protected Win10/11 inbox & regional system fonts plus reboot-scheduled cleanup for locked external fonts",
-        "Fixed GitHub release redirect CDN allowlist & added animated per-card cloud pack download telemetry",
-        "Updated built-in catalog and v1.0.3 cloud packs downloader",
+        "Unified Windows AppData directory structure (Fonts/Imported, Updates, Downloads, Backups, Roaming preferences) with upfront Inno Setup initialization",
+        "Methodical font & folder import pipeline with OpenType pre-validation, SHA-256 deduplication, and organized collection grouping",
+        "Accurate Windows Fonts backup counting (including reboot-scheduled locked fonts), backup deletion, and responsive Portal modals",
+        "Fontivo v2.0 Plum Ink & Coral visual identity across native window and UI with instant FR_PRIVATE RAM font activation",
+        "Protected Win10/11 inbox & regional system fonts plus built-in Adobe CC bridge and .ASE palette export",
       ],
     },
     {

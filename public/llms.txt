@@ -3,7 +3,7 @@
 > Fontivo is a free, open-source (MIT) Windows, macOS, and Linux desktop font manager built with Native Rust and React 19, paired with the Fontivo-Fonts v1.0.3 curated typography collection.
 
 ## Canonical Releases
-- Desktop Application: v1.0.0 (Windows Setup Installer `Fontivo-v1.0-Setup.exe`, 4.30 MB; macOS & Linux native source/verified installer `scripts/install.sh`)
+- Desktop Application: v1.1.1 (Windows Setup Installer `Fontivo-Setup.exe`; macOS & Linux native verified installer `scripts/install.sh`)
 - Fontivo-Fonts Library: v1.0.3 (10,939 unique SHA-256 deduplicated fonts across 4,430 families in 15 modular ZIP packs, 864.01 MB total)
   - Scripts: Latin (7,146), Urdu (1,565), Persian (1,257), Arabic (971)
 

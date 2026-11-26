@@ -4,7 +4,7 @@
  * Update this single file when releasing a new Desktop or Fontivo-Fonts version.
  */
 
-export const FONTIVO_VERSION = "1.0.3";
+export const FONTIVO_VERSION = "1.1.1";
 export const FONTIVO_VERSION_TAG = `v${FONTIVO_VERSION}`;
 export const FONTIVO_MAJOR_MINOR = FONTIVO_VERSION.split(".")
   .slice(0, 2)
