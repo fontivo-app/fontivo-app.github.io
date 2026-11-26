@@ -4,7 +4,7 @@
  * Update this single file when releasing a new Desktop or Fontivo-Fonts version.
  */
 
-export const FONTIVO_VERSION = "1.1.1";
+export const FONTIVO_VERSION = "1.1.2";
 export const FONTIVO_VERSION_TAG = `v${FONTIVO_VERSION}`;
 export const FONTIVO_MAJOR_MINOR = FONTIVO_VERSION.split(".")
   .slice(0, 2)
@@ -25,10 +25,10 @@ export const FONTIVO_FONTS_RELEASE_URL = `https://github.com/${FONTIVO_FONTS_REP
 
 /** Windows Installer Binary */
 export const FONTIVO_INSTALLER_FILENAME = "Fontivo-Setup.exe";
-export const FONTIVO_INSTALLER_SIZE_BYTES = 4624701;
-export const FONTIVO_INSTALLER_SIZE_FORMATTED = "4.41 MB";
+export const FONTIVO_INSTALLER_SIZE_BYTES = 4650873;
+export const FONTIVO_INSTALLER_SIZE_FORMATTED = "4.44 MB";
 export const FONTIVO_INSTALLER_SHA256 =
-  "f4e72f4e4af9d183e0f0a1d24a663c09a588ccb63cbd5f6fca01655a2303efa6";
+  "ce74c701e4e726f9654308cd442220f2570f047b1ce10ed0144e7736419e1636";
 
 export const GITHUB_RELEASES_BASE = `https://github.com/${FONTIVO_GITHUB_REPO}/releases/download/${FONTIVO_VERSION_TAG}`;
 export const GITHUB_LATEST_RELEASE_URL = `https://github.com/${FONTIVO_GITHUB_REPO}/releases/latest`;
