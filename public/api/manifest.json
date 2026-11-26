@@ -8,9 +8,9 @@
     "platforms": {
       "windows": {
         "installer": "Fontivo-Setup.exe",
-        "sizeBytes": 4601695,
-        "sizeFormatted": "4.39 MB",
-        "sha256": "038c39dac277468316065daa7236a8c45cf9d8d586745fc8e91f005da7780082",
+        "sizeBytes": 4624701,
+        "sizeFormatted": "4.41 MB",
+        "sha256": "f4e72f4e4af9d183e0f0a1d24a663c09a588ccb63cbd5f6fca01655a2303efa6",
         "downloadUrl": "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.1.1/Fontivo-Setup.exe"
       },
       "macos": {
