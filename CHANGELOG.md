@@ -5,6 +5,11 @@ All notable changes to **Fontivo-Site** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.4] - 2026-11-27
+
+### Updated
+- Synchronized Desktop Application SSOT (`src/config/version.ts`, `public/api/manifest.json`, `public/llms.txt`, `package.json`) to **Fontivo v1.1.4** (`4,716,020` bytes / `4.50 MB`, verified SHA-256 checksum `1eb7a8a4fe6921b27768d34eb253f8878ad5ec07eb09c84efe8c6e52cfa42d7a`) featuring the full-width Workspace Studio layout, collision-free Color Palette grid, complete Project Fonts display, and real-time full-library font search.
+
 ## [1.1.3] - 2026-11-26
 
 ### Updated
