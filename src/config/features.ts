@@ -45,66 +45,65 @@ export interface Feature {
 export const coreFeatures: Feature[] = [
   {
     id: "in-memory-activation",
-    title: "In-Memory RAM Activation",
-    shortTitle: "RAM Engine",
+    title: "Instant Font Activation",
+    shortTitle: "Instant Activation",
     tagline:
-      "Activate fonts in volatile session memory with zero Windows Registry writes.",
+      "Activate fonts for your session without slowing down Windows or cluttering your system fonts folder.",
     description:
-      "Mount fonts directly via Win32 AddFontResourceExW (FR_PRIVATE) instead of copying thousands of files into C:\\Windows\\Fonts. Fonts appear immediately in design apps and unload cleanly when Fontivo exits.",
+      "Use any font immediately inside your design apps without copying thousands of files into your Windows Fonts folder. Fonts appear right away and unload cleanly when Fontivo closes.",
     iconName: "Cpu",
     category: "performance",
-    badge: "FR_PRIVATE < 2ms",
+    badge: "Instant < 2ms",
     highlights: [
-      "Zero registry writes — prevents Windows FNTCACHE bloat and slow boot times.",
-      "Broadcasts WM_FONTCHANGE so Photoshop, Illustrator, and Figma update live.",
-      "Runs cleanly in standard user mode with no administrator prompt.",
+      "Keeps your Windows Fonts folder clean — prevents slow boot times and bloated font menus.",
+      "Updates Photoshop, Illustrator, InDesign, and Figma live as soon as you toggle a font.",
+      "Runs smoothly in standard user mode with no administrator prompt.",
     ],
     specs: [
-      { label: "Activation Latency", value: "< 2 ms" },
-      { label: "Registry Writes", value: "0 Bytes" },
+      { label: "Activation Speed", value: "< 2 ms" },
+      { label: "System Clutter", value: "Zero" },
       { label: "Session Cleanup", value: "Automatic on Exit" },
     ],
     deepDive: {
       problemStatement:
-        "Installing thousands of fonts permanently fills C:\\Windows\\Fonts and slows down both Windows boot and Creative Cloud startup.",
+        "Installing thousands of fonts permanently fills your system fonts folder and slows down both Windows startup and Creative Cloud launch times.",
       architecturalSolution:
-        "Fontivo loads fonts strictly into your active user session in RAM using Win32 AddFontResourceExW with FR_PRIVATE isolation.",
+        "Fontivo activates fonts strictly for your active creative session without copying files into your system fonts folder.",
       workflow: [
         {
           step: 1,
           phase: "Select",
           action: "Toggle a font family or workspace pack in Fontivo.",
-          outcome: "Validated metadata loads in under 1 ms.",
+          outcome: "Validated font metadata loads in under 1 ms.",
         },
         {
           step: 2,
-          phase: "Mount",
-          action: "Invoke AddFontResourceExW with FR_PRIVATE.",
-          outcome: "Fonts register in memory with zero disk copying.",
+          phase: "Activate",
+          action: "Load fonts directly for your active design session.",
+          outcome: "Fonts become ready without copying files to Windows.",
         },
         {
           step: 3,
           phase: "Sync",
-          action: "Broadcast WM_FONTCHANGE across desktop windows.",
+          action: "Notify open creative apps automatically.",
           outcome: "Design tools see the activated fonts right away.",
         },
       ],
       technicalSpecs: [
-        { label: "Engine", value: "Native Rust 2021 + Win32 GDI32" },
+        { label: "Startup Speed", value: "< 0.35s Cold Start" },
         { label: "Memory Footprint", value: "~38 MB Idle" },
-        { label: "Reboot Required", value: "0 ms (None)" },
+        { label: "Reboot Required", value: "None" },
       ],
       architectureDiagram: {
         type: "memory",
-        title: "Win32 User-Space Memory Flow",
+        title: "Session Activation Flow",
         description:
-          "Font File -> RAM Handle (FR_PRIVATE) -> WM_FONTCHANGE -> Creative Apps",
+          "Font File -> Session Activation -> Live App Sync -> Creative Apps",
       },
       codeSnippet: {
-        language: "rust",
-        filename: "windows.rs",
-        code: `let count = AddFontResourceExW(path_w.as_ptr(), FR_PRIVATE, std::ptr::null_mut());
-PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
+        language: "text",
+        filename: "session.log",
+        code: `[OK] Font family activated for session • 0 system files copied`,
       },
     },
   },
@@ -227,22 +226,22 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
   },
   {
     id: "adobe-live-bridge",
-    title: "Adobe CC Auto-Activation Bridge",
-    shortTitle: "Adobe CC Bridge",
+    title: "Automatic Adobe CC Font Sync",
+    shortTitle: "Adobe CC Sync",
     tagline:
-      "Resolve missing fonts in Photoshop, Illustrator, and InDesign automatically.",
+      "Missing fonts activate seamlessly when you open files in Photoshop, Illustrator, and InDesign.",
     description:
-      "A local loopback listener scans open project files (.PSD, .AI, .INDD, .PDF) and resolves required PostScript font names from your workspaces in milliseconds.",
+      "Fontivo scans your local design files (.PSD, .AI, .INDD, .PDF) on-device and activates any missing workspace fonts automatically so you never hit a Missing Fonts dialog.",
     iconName: "Layers",
     category: "integration",
-    badge: "Loopback 27715",
+    badge: "Auto-Sync",
     highlights: [
       "Inspects design files locally without uploading client assets.",
-      "Activates required workspace fonts into RAM in one click.",
+      "Activates required workspace fonts automatically in one click.",
       "100% free forever with no Adobe plugin subscription fees.",
     ],
     specs: [
-      { label: "Local Socket", value: "127.0.0.1:27715" },
+      { label: "Sync Mode", value: "100% Offline" },
       { label: "Design Formats", value: ".PSD, .AI, .INDD, .PDF" },
       { label: "Cost", value: "Free (Open Source)" },
     ],
@@ -250,34 +249,34 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
       problemStatement:
         "Opening client files with missing fonts interrupts design flow and normally requires paid font manager tiers.",
       architecturalSolution:
-        "Fontivo includes a native Rust file scanner and local TCP socket bridge bound strictly to localhost.",
+        "Fontivo includes a fast, offline-first file scanner that syncs missing fonts directly with your local Adobe Creative Cloud apps.",
       workflow: [
         {
           step: 1,
           phase: "Scan",
           action: "Inspect project directory or active Adobe document.",
-          outcome: "Extract required PostScript font names locally.",
+          outcome: "Identify required fonts locally in milliseconds.",
         },
         {
           step: 2,
-          phase: "Mount",
-          action: "Match files and call Win32 FR_PRIVATE activation.",
+          phase: "Activate",
+          action: "Match workspace fonts and activate them for your session.",
           outcome: "Missing fonts resolve immediately inside Adobe apps.",
         },
       ],
       technicalSpecs: [
-        { label: "Binding", value: "Localhost Only (127.0.0.1)" },
+        { label: "Processing", value: "On-Device Only" },
         { label: "Privacy", value: "0 Network Telemetry" },
       ],
       architectureDiagram: {
         type: "socket",
-        title: "Local Design Bridge",
+        title: "Offline Creative Sync",
         description:
-          "PSD / AI / INDD -> PostScript Match -> RAM Mount -> Adobe CC",
+          "PSD / AI / INDD -> Font Match -> Instant Activation -> Adobe CC",
       },
       codeSnippet: {
         language: "json",
-        filename: "bridge-request.json",
+        filename: "sync-request.json",
         code: `{ "action": "activateFonts", "fonts": ["Cairo-Bold", "Inter-Regular"] }`,
       },
     },
@@ -339,19 +338,19 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
   },
   {
     id: "system-fonts-recovery",
-    title: "System Health & Local-First Safety",
+    title: "System Health & Offline Privacy",
     shortTitle: "System Health",
     tagline:
-      "Audit orphaned Windows font keys, protect core fonts, and run 100% privately.",
+      "Clean up broken font entries safely, protect core system fonts, and work 100% offline.",
     description:
-      "Includes a Registry Guardian with automated restore backups, protected Windows core font safeguards, and a zero-telemetry architecture audited by 135 Rust tests.",
+      "Includes automated restore backups before maintenance, strict protection for core Windows fonts, and an offline-first architecture with zero telemetry.",
     iconName: "ShieldCheck",
     category: "security",
     badge: "Zero Telemetry",
     highlights: [
       "Protects Windows core fonts (Segoe UI, Arial, Tahoma) from accidental removal.",
       "Zero tracking, zero analytics, and zero required accounts.",
-      "135 Rust unit/security tests & 170 React UI tests verified.",
+      "Thoroughly verified across automated desktop and UI test suites.",
     ],
     specs: [
       { label: "Telemetry", value: "0.0 kB (None)" },
@@ -359,37 +358,37 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
     ],
     deepDive: {
       problemStatement:
-        "Uninstalled legacy font tools leave broken registry entries and risk removing critical Windows UI fonts.",
+        "Uninstalled legacy font tools leave broken font entries behind and risk removing critical Windows UI fonts.",
       architecturalSolution:
-        "Fontivo backs up registry snapshots before maintenance and strictly protects core Windows system fonts.",
+        "Fontivo creates automatic restore backups before maintenance and strictly protects core Windows system fonts.",
       workflow: [
         {
           step: 1,
           phase: "Audit",
-          action: "Scan HKCU/HKLM font entries for missing disk targets.",
-          outcome: "Safely surface orphaned keys with one-click cleanup.",
+          action: "Scan system font entries for missing files.",
+          outcome: "Safely surface broken entries with one-click cleanup.",
         },
         {
           step: 2,
           phase: "Protect",
-          action: "Snapshot before changes and enforce protected whitelist.",
+          action: "Save a backup snapshot and enforce a protected font list.",
           outcome: "Restore backups anytime in one click.",
         },
       ],
       technicalSpecs: [
-        { label: "Rust Tests", value: "135 Passed (0 Warnings)" },
-        { label: "UI Tests", value: "170 Passed" },
+        { label: "Mode", value: "100% Offline-First" },
+        { label: "Privacy", value: "Zero Accounts or Tracking" },
       ],
       architectureDiagram: {
         type: "security",
         title: "System Protection Layer",
         description:
-          "Whitelist Guard -> Snapshot Backup -> Clean Registry / FNTCACHE",
+          "Core Font Guard -> Snapshot Backup -> Safe System Cleanup",
       },
       codeSnippet: {
         language: "text",
         filename: "audit.log",
-        code: `[OK] Core Windows fonts protected • 0 orphaned keys • Snapshot saved`,
+        code: `[OK] Core Windows fonts protected • 0 broken entries • Snapshot saved`,
       },
     },
   },

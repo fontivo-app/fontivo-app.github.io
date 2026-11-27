@@ -27,21 +27,20 @@ interface PageSeoCopy {
 const PAGE_SEO: Record<SitePageKey, PageSeoCopy> = {
   home: {
     path: "",
-    titleEn: `Fontivo ${FONTIVO_VERSION_TAG} — Native Rust Font Manager & 10,939 Fonts`,
-    titleAr: `فونتيفو ${FONTIVO_VERSION_TAG} — مدير خطوط سريع بلغة Rust ومكتبة 10,939 خطًا`,
-    descriptionEn: `Lightweight native Rust desktop font manager (${FONTIVO_VERSION_TAG}) paired with ${FONTIVO_FONTS_VERSION_TAG} (${siteConfig.stats.totalFonts} curated fonts). Activate fonts in RAM with zero Windows Registry bloat.`,
-    descriptionAr: `تطبيق مكتبي خفيف بلغة Rust (${FONTIVO_VERSION_TAG}) لإدارة الخطوط وتفعيلها في الذاكرة RAM بدون تلويث سجل ويندوز، مع مكتبة ${FONTIVO_FONTS_VERSION_TAG} تضم ${siteConfig.stats.totalFonts} خطًا.`,
+    titleEn: `Fontivo ${FONTIVO_VERSION_TAG} — Fast Font Manager & 10,939 Curated Fonts`,
+    titleAr: `فونتيفو ${FONTIVO_VERSION_TAG} — مدير خطوط سريع ومكتبة 10,939 خطًا`,
+    descriptionEn: `Fast, offline-first desktop font manager (${FONTIVO_VERSION_TAG}) paired with ${FONTIVO_FONTS_VERSION_TAG} (${siteConfig.stats.totalFonts} curated fonts). Activate fonts instantly without slowing down Windows or cluttering your system fonts folder.`,
+    descriptionAr: `تطبيق مكتبي سريع وخفيف (${FONTIVO_VERSION_TAG}) لإدارة الخطوط وتفعيلها فورًا دون إبطاء ويندوز أو تكديس مجلد خطوط النظام، مع مكتبة ${FONTIVO_FONTS_VERSION_TAG} تضم ${siteConfig.stats.totalFonts} خطًا.`,
   },
   features: {
     path: "/features",
-    titleEn:
-      "Features & Architecture — RAM Activation, Adobe Bridge & Color Studio",
+    titleEn: "Features — Instant Font Activation, Adobe CC Sync & Color Studio",
     titleAr:
-      "المزايا والمعمارية — التفعيل بالذاكرة، ربط Adobe CC واستوديو الألوان",
+      "المزايا — التفعيل الفوري للخطوط، مزامنة Adobe CC واستوديو الألوان",
     descriptionEn:
-      "Explore Fontivo's 6 core pillars: Win32 FR_PRIVATE RAM font activation, 10,939 curated fonts, Adobe CC auto-bridge, .ASE Color Studio, and zero telemetry.",
+      "Explore Fontivo's 6 core capabilities: instant font activation without system bloat, 10,939 curated fonts, automatic Adobe CC font syncing, .ASE Color Studio, and 100% offline privacy.",
     descriptionAr:
-      "استكشف ركائز فونتيفو الست: التفعيل الفوري بالذاكرة، مكتبة 10,939 خطًا، جسر Adobe CC التلقائي، واستوديو الألوان مع خصوصية كاملة.",
+      "استكشف ركائز فونتيفو الست: التفعيل الفوري للخطوط دون إثقال النظام، مكتبة 10,939 خطًا، المزامنة التلقائية مع Adobe CC، واستوديو الألوان مع خصوصية كاملة.",
   },
   download: {
     path: "/download",
@@ -52,28 +51,28 @@ const PAGE_SEO: Record<SitePageKey, PageSeoCopy> = {
   },
   docs: {
     path: "/docs",
-    titleEn: "Documentation — Quick Start, Paths & SHA-256 Verification",
-    titleAr: "الدليل التقني — البدء السريع والتحقق من SHA-256",
-    descriptionEn: `Quick start guide, Win32 RAM virtualization paths, Adobe CC Port 27715 socket specification, and SHA-256 verification for Fontivo ${FONTIVO_VERSION_TAG}.`,
-    descriptionAr: `دليل البدء السريع، مسارات النظام، منفذ ربط Adobe CC المحلي، والتحقق الرقمي SHA-256 لتطبيق فونتيفو ${FONTIVO_VERSION_TAG}.`,
+    titleEn: "Documentation — Quick Start, Workspace Paths & Verification",
+    titleAr: "الدليل السريع — التثبيت، مسارات العمل والتحقق من الملفات",
+    descriptionEn: `Quick start guide, offline workspace paths, Adobe Creative Cloud auto-sync setup, and SHA-256 verification for Fontivo ${FONTIVO_VERSION_TAG}.`,
+    descriptionAr: `دليل البدء السريع، مسارات مساحة العمل المحلية، إعداد المزامنة التلقائية مع Adobe Creative Cloud، والتحقق من الملفات لتطبيق فونتيفو ${FONTIVO_VERSION_TAG}.`,
   },
   about: {
     path: "/about",
-    titleEn: "About Fontivo — Philosophy & Developers",
-    titleAr: "عن فونتيفو — الفلسفة وفريق التطوير",
+    titleEn: "About Fontivo — Philosophy & Creators",
+    titleAr: "عن فونتيفو — الفلسفة وفريق العمل",
     descriptionEn:
-      "Meet the creators of Fontivo: Eng. Ahmed Fahmy (Software Engineer) and Eng. Mohamed Elashwah (Graphic Designer). Free, open-source, zero-telemetry typography tools.",
+      "Meet the creators of Fontivo: Eng. Ahmed Fahmy (Software Engineer) and Eng. Mohamed Elashwah (Graphic Designer). Free, open-source, offline-first creative tools.",
     descriptionAr:
-      "تعرف على مطوري فونتيفو: م. أحمد فهمي (مهندس برمجيات) وم. محمد الأشوح (مصمم جرافيك)، وفلسفة المشروع الحرة مفتوحة المصدر.",
+      "تعرف على فريق فونتيفو: م. أحمد فهمي (مهندس برمجيات) وم. محمد الأشوح (مصمم جرافيك)، وفلسفة المشروع الحرة مفتوحة المصدر.",
   },
   faq: {
     path: "/faq",
     titleEn: "Frequently Asked Questions (FAQ)",
     titleAr: "الأسئلة الشائعة",
     descriptionEn:
-      "Answers about Fontivo Desktop RAM activation, Windows Registry safety, Adobe CC auto-activation, and the 10,939-font open-source collection.",
+      "Answers about instant font activation, keeping Windows fast and clean, automatic Adobe CC font syncing, and the 10,939-font open-source collection.",
     descriptionAr:
-      "إجابات واضحة حول تفعيل الخطوط في الذاكرة، أمان سجل ويندوز، الربط التلقائي مع Adobe CC، ومكتبة الـ 10,939 خطًا.",
+      "إجابات واضحة حول التفعيل الفوري للخطوط، الحفاظ على سرعة ونظافة ويندوز، المزامنة التلقائية مع Adobe CC، ومكتبة الـ 10,939 خطًا.",
   },
 };
 
@@ -239,8 +238,8 @@ export function buildDownloadHowToJsonLd(locale: Locale = "en") {
           ? "macOS وLinux: التثبيت عبر install.sh"
           : "macOS & Linux: Install via native install.sh",
         text: isAr
-          ? `افتح الطرفية ونفّذ الأمر: ${UNIX_INSTALL_CMD} لبناء وتثبيت النسخة الأصلية بلغة Rust عبر Cargo.`
-          : `Open your terminal and run: ${UNIX_INSTALL_CMD} to build and install the native Rust binary via Cargo.`,
+          ? `افتح الطرفية ونفّذ الأمر: ${UNIX_INSTALL_CMD} لتثبيت النسخة الأصلية من فونتيفو.`
+          : `Open your terminal and run: ${UNIX_INSTALL_CMD} to build and install Fontivo natively.`,
         url: `${siteConfig.url}/${locale}/download#unix-install`,
       },
       {

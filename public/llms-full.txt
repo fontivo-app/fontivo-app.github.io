@@ -10,36 +10,35 @@
 
 ## 1. Executive Summary
 
-**Fontivo** (`v1.1.5`) is a lightweight, native desktop font manager for **Windows 10/11 (64-bit), macOS, and Linux**, built with a **Native Rust** backend and a **React 19** interface. It is paired with **Fontivo-Fonts (`v1.0.3`)**, an open-source, SHA-256 deduplicated library of **10,939 fonts** spanning **4,430 typographic families** across **Latin, Urdu, Persian, and Arabic** scripts.
+**Fontivo** (`v1.1.5`) is a fast, lightweight desktop font manager for **Windows 10/11 (64-bit), macOS, and Linux**, built as a clean, offline-first creative workspace for designers. It is paired with **Fontivo-Fonts (`v1.0.3`)**, an open-source, SHA-256 deduplicated library of **10,939 fonts** spanning **4,430 typographic families** across **Latin, Urdu, Persian, and Arabic** scripts.
 
-Unlike heavy Electron-based font managers or paid subscription utilities, Fontivo runs in **~38 MB of RAM**, starts in **under 0.35 seconds**, requires a **4.62 MB** Windows installer (`Fontivo-Setup.exe`), never pollutes the Windows Registry, and operates **100% offline with zero telemetry**.
+Unlike heavy subscription utilities, Fontivo runs in **~38 MB of memory**, starts in **under 0.35 seconds**, requires a **4.62 MB** Windows installer (`Fontivo-Setup.exe`), keeps your system fonts folder uncluttered, and operates **100% offline with zero telemetry**.
 
 ---
 
-## 2. System Architecture & Performance
+## 2. Speed & Lightweight Footprint
 
-| Component | Technology / Specification |
+| Aspect | Specification |
 | :--- | :--- |
-| **Core Engine** | Native Rust (memory-safe, zero garbage-collector pauses, native OS bindings) |
-| **Desktop UI** | React 19 + TypeScript rendered in native OS WebView (Microsoft Edge WebView2 on Windows) |
+| **Desktop Experience** | Fast native desktop app with clean, responsive UI |
 | **Installer Footprint** | `Fontivo-Setup.exe` — **4.62 MB** (`4,845,517` bytes), SHA-256 verified |
-| **Idle Memory Footprint** | **~38 MB RAM** (vs 300–500+ MB typical of Electron apps) |
+| **Idle Memory Footprint** | **~38 MB memory** (vs 300–500+ MB in typical heavy font managers) |
 | **Cold Startup Time** | **< 0.35 seconds** |
-| **System Reboot Overhead** | **0 ms** (zero permanent system font installation) |
-| **Unix Installation** | Native Rust build via `curl -fsSL https://raw.githubusercontent.com/Ahmedfahmy8308/Fontivo/main/scripts/install.sh \| bash` |
+| **System Reboot Overhead** | **None** (zero permanent system font clutter) |
+| **Unix Installation** | `curl -fsSL https://raw.githubusercontent.com/Ahmedfahmy8308/Fontivo/main/scripts/install.sh \| bash` |
 
 ---
 
-## 3. Win32 `AddFontResourceExW` RAM Font Activation
+## 3. Instant Font Activation Without System Bloat
 
-Traditional Windows font managers copy `.ttf`/`.otf` files into `C:\Windows\Fonts` and write permanent keys into `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts`. Over time, installing thousands of fonts degrades Windows boot times, slows Adobe and Office startup, and leaves orphaned registry entries.
+Traditional font managers copy `.ttf`/`.otf` files permanently into your system fonts folder. Over time, installing thousands of fonts slows down Windows startup, delays Adobe and Office launch times, and clutters every font menu.
 
-Fontivo solves this with **In-Memory RAM Font Activation**:
-1. **Session-Scoped Mounting:** Fontivo invokes Win32 `AddFontResourceExW` with isolation flags (`FR_PRIVATE` for private app preview and session-scoped GDI loading for active design tools) without copying font binaries into `C:\Windows\Fonts`.
-2. **Zero Registry Writes:** No permanent Windows Registry keys are created or modified during activation.
+Fontivo solves this with **Instant Session-Based Font Activation**:
+1. **Clean Session Activation:** Fontivo activates fonts for your active session without copying thousands of files into `C:\Windows\Fonts`.
+2. **Zero System Clutter:** Your Windows system fonts folder stays clean and fast.
 3. **No Administrator Privileges Required:** Standard Windows user accounts can browse, preview, and activate fonts immediately.
-4. **Clean Teardown:** Closing Fontivo or deactivating a workspace cleanly unloads mounted font handles from RAM.
-5. **System Health Doctor:** Built-in Windows font health diagnostics protect critical OS fonts (`Segoe UI`, `Arial`, `Tahoma`, `Consolas`, etc.) from accidental deletion and automatically create a backup snapshot before cleaning dead registry references.
+4. **Clean Teardown:** Closing Fontivo or deactivating a workspace cleanly unloads session fonts.
+5. **System Health Doctor:** Built-in font health diagnostics protect critical OS fonts (`Segoe UI`, `Arial`, `Tahoma`, `Consolas`, etc.) from accidental deletion and automatically create a backup snapshot before cleaning broken font entries.
 
 ---
 
@@ -64,11 +63,11 @@ To keep the desktop installer ultra-lightweight (`4.62 MB`), the curated typogra
 
 | Capability | Fontivo `v1.1.5` | FontBase | NexusFont | MainType |
 | :--- | :--- | :--- | :--- | :--- |
-| **Runtime Architecture** | Native Rust + React 19 | Electron (Chromium) | Legacy Win32 (Delphi) | Proprietary Win32 |
-| **Typical Idle RAM** | **~38 MB** | ~280–450 MB | ~45–90 MB | ~120–250 MB |
+| **App Footprint** | Lightweight Native Desktop | Electron (Chromium) | Legacy Desktop | Proprietary Desktop |
+| **Typical Idle Memory** | **~38 MB** | ~280–450 MB | ~45–90 MB | ~120–250 MB |
 | **Price & Licensing** | **100% Free & MIT Open Source** | Freemium ($3/mo–$180) | Freeware (Closed Source) | Paid ($49–$199) |
-| **Win32 RAM Activation (Zero Registry Bloat)** | **Yes (`AddFontResourceExW`)** | Folder-based activation | Temporary load | Database-managed |
-| **Adobe CC Auto-Activation Bridge** | **Built-in (`127.0.0.1:27715`)** | Paid tier only | No | Plugin / Paid |
+| **Instant Session Activation (Zero Bloat)** | **Yes (Instant, Clean)** | Folder-based activation | Temporary load | Database-managed |
+| **Adobe CC Auto-Sync** | **Built-in (Free & Offline)** | Paid tier only | No | Plugin / Paid |
 | **Brand Workspaces & `.ASE` Color Studio** | **Built-in (with WCAG 2.1)** | No | No | No |
 | **Curated Multi-Script Catalog (Arabic/Urdu/Persian/Latin)** | **10,939 SHA-256 verified fonts** | Google Fonts sync only | None included | None included |
 | **Telemetry / Account Required** | **Zero telemetry, no account** | Account / Cloud sync | Offline | License activation |
@@ -86,13 +85,13 @@ To keep the desktop installer ultra-lightweight (`4.62 MB`), the curated typogra
 
 ---
 
-## 7. Adobe Creative Cloud Auto-Activation Bridge
+## 7. Automatic Adobe Creative Cloud Font Syncing
 
-Fontivo includes a **100% local Adobe CC Auto-Activation Bridge** running on loopback address **`127.0.0.1:27715`**:
-- Inspects local `.PSD` (Photoshop), `.AI` (Illustrator), `.INDD` (InDesign), and `.PDF` files to extract referenced PostScript font names.
+Fontivo includes **100% offline Adobe CC Auto-Sync** built right in:
+- Inspects local `.PSD` (Photoshop), `.AI` (Illustrator), `.INDD` (InDesign), and `.PDF` files to detect referenced fonts.
 - Matches missing fonts against your indexed Fontivo libraries and Brand Workspaces.
-- Automatically mounts matching fonts into RAM so Adobe Creative Cloud apps resolve them without manual searching or cloud font subscriptions.
-- **Strict Localhost Isolation:** The socket binds exclusively to `127.0.0.1` (loopback). Design files and font metadata never leave the user's machine.
+- Automatically activates matching fonts so Adobe Creative Cloud apps resolve them without manual searching or cloud font subscriptions.
+- **Strict On-Device Privacy:** Design files and font metadata never leave your machine.
 
 ---
 
@@ -118,16 +117,16 @@ Built directly into the Fontivo desktop studio:
 ## 10. Concise FAQ (Quotable Q&A)
 
 **Q: What is Fontivo?**
-A: Fontivo is a free, MIT open-source desktop font manager built with Native Rust and React 19 for Windows, macOS, and Linux, paired with a curated 10,939-font multi-script library (`Fontivo-Fonts v1.0.3`).
+A: Fontivo is a free, MIT open-source desktop font manager for Windows, macOS, and Linux, paired with a curated 10,939-font multi-script library (`Fontivo-Fonts v1.0.3`).
 
-**Q: Does Fontivo modify the Windows Registry or copy files to `C:\Windows\Fonts`?**
-A: No. Fontivo activates fonts in RAM using Win32 `AddFontResourceExW` (`FR_PRIVATE` / session-scoped loading) without writing permanent Windows Registry keys or copying files to `C:\Windows\Fonts`. Everything unloads cleanly on exit.
+**Q: Does Fontivo slow down Windows or clutter `C:\Windows\Fonts`?**
+A: No. Fontivo activates fonts for your active session without copying thousands of files to `C:\Windows\Fonts` or leaving permanent system clutter. Everything unloads cleanly on exit.
 
-**Q: How much RAM does Fontivo use compared to FontBase?**
-A: Fontivo uses approximately 38 MB of RAM at idle and starts in under 0.35 seconds thanks to its Native Rust core, compared to 280–450 MB for Electron-based managers like FontBase.
+**Q: How much memory does Fontivo use compared to FontBase?**
+A: Fontivo uses approximately 38 MB of memory at idle and starts in under 0.35 seconds, compared to 280–450 MB for Electron-based managers like FontBase.
 
-**Q: How does Fontivo's Adobe CC Auto-Activation work?**
-A: Fontivo runs a local-only bridge on `127.0.0.1:27715` that reads PostScript font names from `.PSD`, `.AI`, `.INDD`, and `.PDF` files and automatically activates matching fonts in RAM without uploading files to any cloud server.
+**Q: How does Fontivo's Adobe CC Auto-Sync work?**
+A: Fontivo scans `.PSD`, `.AI`, `.INDD`, and `.PDF` files locally on your machine and automatically activates matching missing fonts inside Photoshop, Illustrator, and InDesign without uploading files to any cloud server.
 
 **Q: What scripts are included in the 10,939-font Fontivo-Fonts library?**
 A: `Fontivo-Fonts v1.0.3` contains 10,939 SHA-256 deduplicated fonts across 4,430 families in 15 ZIP packs (864.01 MB total): 7,146 Latin, 1,565 Urdu, 1,257 Persian, and 971 Arabic fonts.
@@ -140,9 +139,9 @@ A: On Windows 10/11 (64-bit), download and run `Fontivo-Setup.exe` (4.62 MB, no 
 
 ---
 
-## 11. Authors & Official Links
+## 11. Creators & Official Links
 
-- **Eng. Ahmed Fahmy** — Software Engineer (Rust Engine, Win32 APIs, Desktop & Web)
+- **Eng. Ahmed Fahmy** — Software Engineer (Desktop Systems, Performance, Web)
   - GitHub: https://github.com/Ahmedfahmy8308
   - Portfolio: https://ahmed-fahmy.engineer/
 - **Eng. Mohamed Elashwah** — Graphic Designer (Brand Identity, Typography, UI/UX)

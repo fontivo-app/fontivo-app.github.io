@@ -32,17 +32,17 @@ describe("FeaturesClient Component", () => {
     );
 
     fireEvent.click(screen.getByRole("button", { name: /^Adobe CC$/i }));
-    expect(screen.getByText("Adobe CC Auto-Activation Bridge")).toBeDefined();
-    expect(screen.queryByText("In-Memory RAM Activation")).toBeNull();
+    expect(screen.getByText("Automatic Adobe CC Font Sync")).toBeDefined();
+    expect(screen.queryByText("Instant Font Activation")).toBeNull();
 
     fireEvent.click(screen.getByRole("button", { name: /^Color Studio$/i }));
     expect(
       screen.getByText("Color Studio, Eyedropper & .ASE Export"),
     ).toBeDefined();
-    expect(screen.queryByText("Adobe CC Auto-Activation Bridge")).toBeNull();
+    expect(screen.queryByText("Automatic Adobe CC Font Sync")).toBeNull();
 
     fireEvent.click(screen.getByRole("button", { name: /^All$/i }));
-    expect(screen.getByText("In-Memory RAM Activation")).toBeDefined();
+    expect(screen.getByText("Instant Font Activation")).toBeDefined();
   });
 
   it("updates live specimen script, font size, and WCAG contrast ratio", () => {
@@ -84,6 +84,6 @@ describe("FeaturesClient Component", () => {
       </LanguageProvider>,
     );
 
-    expect(screen.getByText("تفعيل الخطوط بالذاكرة RAM")).toBeDefined();
+    expect(screen.getByText("تفعيل الخطوط الفوري للجلسة")).toBeDefined();
   });
 });

@@ -63,18 +63,22 @@ export function DocsClient() {
 
   const techRows = [
     {
-      component: isAr ? "تفعيل الخطوط بالذاكرة" : "Win32 RAM Font Mount",
-      detail: "AddFontResourceExW (FR_PRIVATE) + WM_FONTCHANGE",
+      component: isAr ? "التفعيل الفوري للخطوط" : "Instant Font Activation",
+      detail: isAr
+        ? "تفعيل مؤقت للجلسة — يبقي مجلد خطوط ويندوز نظيفًا وسريعًا"
+        : "Session-only activation — keeps Windows Fonts folder clean and fast",
     },
     {
-      component: isAr
-        ? "مجلد بيانات التطبيق المحلي"
-        : "Local App State & Cache",
-      detail: "%LOCALAPPDATA%\\Fontivo\\ (0 Windows Registry writes)",
+      component: isAr ? "مجلد مساحة العمل المحلي" : "Offline Workspace & Cache",
+      detail: isAr
+        ? "%LOCALAPPDATA%\\Fontivo\\ (عمل محلي 100% بدون إنترنت)"
+        : "%LOCALAPPDATA%\\Fontivo\\ (100% offline & private)",
     },
     {
-      component: isAr ? "خادم ربط Adobe CC" : "Adobe CC Loopback Bridge",
-      detail: "http://127.0.0.1:27715 (Local-only .PSD / .AI / .INDD scanner)",
+      component: isAr ? "المزامنة التلقائية مع Adobe CC" : "Adobe CC Auto-Sync",
+      detail: isAr
+        ? "فحص محلي تلقائي لملفات .PSD و.AI و.INDD و.PDF"
+        : "Automatic local font syncing for .PSD, .AI, .INDD, and .PDF files",
     },
     {
       component: isAr ? "إصدار مكتبة الخطوط" : "Fontivo-Fonts Release",

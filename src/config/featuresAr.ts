@@ -3,29 +3,29 @@ import { Feature } from "./features";
 export const coreFeaturesAr: Feature[] = [
   {
     id: "in-memory-activation",
-    title: "تفعيل الخطوط بالذاكرة RAM",
-    shortTitle: "محرك الذاكرة",
-    tagline: "تفعيل فوري في ذاكرة الجلسة دون كتابة بايت واحد في سجل ويندوز.",
+    title: "تفعيل الخطوط الفوري للجلسة",
+    shortTitle: "التفعيل الفوري",
+    tagline: "فعّل الخطوط فورًا دون إبطاء ويندوز أو تكديس مجلد خطوط النظام.",
     description:
-      "يحمّل فونتيفو الخطوط مباشرة عبر واجهة Win32 AddFontResourceExW بعزل FR_PRIVATE بدلاً من تكديس آلاف الملفات داخل C:\\Windows\\Fonts، وتُلغى نظيفًا بمجرد إغلاق التطبيق.",
+      "استخدم أي خط فورًا داخل برامج التصميم دون نسخ آلاف الملفات إلى مجلد خطوط ويندوز. تظهر الخطوط مباشرة وتُلغى نظيفًا بمجرد إغلاق التطبيق.",
     iconName: "Cpu",
     category: "performance",
-    badge: "FR_PRIVATE < 2ms",
+    badge: "فوري < 2ms",
     highlights: [
-      "صفر تعديل على سجل النظام لحماية إقلاع ويندوز وكاش الخطوط.",
-      "بث إشعار WM_FONTCHANGE لتظهر الخطوط فورًا في فوتوشوب وفيجما.",
+      "يحافظ على نظافة مجلد خطوط ويندوز — ويحمي سرعة الإقلاع وقوائم الخطوط.",
+      "يحدّث Photoshop وIllustrator وInDesign وFigma مباشرة بمجرد التفعيل.",
       "يعمل بصلاحيات المستخدم العادي دون الحاجة لصلاحيات مسؤول.",
     ],
     specs: [
       { label: "زمن التفعيل", value: "< 2 مللي ثانية" },
-      { label: "الكتابة بالريجستري", value: "0 بايت" },
+      { label: "تكديس النظام", value: "صفر" },
       { label: "التنظيف عند الإغلاق", value: "تلقائي 100%" },
     ],
     deepDive: {
       problemStatement:
         "تثبيت آلاف الخطوط مباشرة داخل النظام يبطئ إقلاع ويندوز ويطيل زمن تشغيل برامج Adobe CC.",
       architecturalSolution:
-        "يحمل فونتيفو الخطوط مؤقتًا في الذاكرة عبر AddFontResourceExW مع علم العزل FR_PRIVATE.",
+        "يفعّل فونتيفو الخطوط لجلستك الحالية فقط دون نسخ الملفات إلى مجلد خطوط النظام.",
       workflow: [
         {
           step: 1,
@@ -35,33 +35,32 @@ export const coreFeaturesAr: Feature[] = [
         },
         {
           step: 2,
-          phase: "التحميل",
-          action: "استدعاء Win32 AddFontResourceExW بعزل FR_PRIVATE.",
-          outcome: "تسجيل الخطوط في الذاكرة دون نسخ أي ملفات للقرص.",
+          phase: "التفعيل",
+          action: "تحميل الخطوط مباشرة لجلستك الإبداعية الحالية.",
+          outcome: "جاهزية الخطوط دون نسخ أي ملفات لويندوز.",
         },
         {
           step: 3,
           phase: "المزامنة",
-          action: "إرسال إشعار WM_FONTCHANGE للنوافذ المفتوحة.",
+          action: "إشعار برامج التصميم المفتوحة تلقائيًا.",
           outcome: "ظهور الخطوط فورًا داخل قوائم برامج التصميم.",
         },
       ],
       technicalSpecs: [
-        { label: "المحرك", value: "Rust 2021 الأصلي + Win32 GDI32" },
+        { label: "سرعة الإقلاع", value: "< 0.35 ثانية" },
         { label: "استهلاك الذاكرة", value: "~38 ميجابايت" },
-        { label: "إعادة التشغيل", value: "0ms (غير مطلوبة)" },
+        { label: "إعادة التشغيل", value: "غير مطلوبة" },
       ],
       architectureDiagram: {
         type: "memory",
-        title: "مسار التفعيل في الذاكرة",
+        title: "مسار التفعيل للجلسة",
         description:
-          "ملف الخط -> مقبض ذاكرة FR_PRIVATE -> إشعار WM_FONTCHANGE -> برامج التصميم",
+          "ملف الخط -> تفعيل الجلسة -> مزامنة فورية -> برامج التصميم",
       },
       codeSnippet: {
-        language: "rust",
-        filename: "windows.rs",
-        code: `let count = AddFontResourceExW(path_w.as_ptr(), FR_PRIVATE, std::ptr::null_mut());
-PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
+        language: "text",
+        filename: "session.log",
+        code: `[OK] Font family activated for session • 0 system files copied`,
       },
     },
   },
@@ -183,22 +182,22 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
   },
   {
     id: "adobe-live-bridge",
-    title: "جسر الربط التلقائي مع Adobe CC",
-    shortTitle: "جسر أدوبي",
+    title: "المزامنة التلقائية مع Adobe CC",
+    shortTitle: "مزامنة أدوبي",
     tagline:
-      "حل مشكلة الخطوط المفقودة في فوتوشوب وإليستريتور وإن ديزاين تلقائيًا.",
+      "تتفعّل الخطوط المفقودة تلقائيًا عند فتح ملفاتك في فوتوشوب وإليستريتور وإن ديزاين.",
     description:
-      "يفحص البرنامج ملفات المشاريع (.PSD, .AI, .INDD, .PDF) محليًا ويفعّل خطوط PostScript المطلوبة عبر مقبس محلي في أجزاء من الثانية.",
+      "يفحص فونتيفو ملفات التصميم محليًا (.PSD, .AI, .INDD, .PDF) ويفعّل الخطوط المفقودة تلقائيًا من مساحة عملك دون أي تدخل يدوي.",
     iconName: "Layers",
     category: "integration",
-    badge: "منفذ 27715",
+    badge: "مزامنة تلقائية",
     highlights: [
       "فحص ملفات التصميم محليًا دون رفع أي ملفات للإنترنت.",
-      "تفعيل خطوط مساحة العمل كاملة في الذاكرة بنقرة واحدة.",
+      "تفعيل خطوط مساحة العمل المطلوبة تلقائيًا بنقرة واحدة.",
       "مجاني بالكامل للأبد دون أي اشتراكات إضافية.",
     ],
     specs: [
-      { label: "المنفذ المحلي", value: "127.0.0.1:27715" },
+      { label: "وضع المزامنة", value: "محلي 100% بدون إنترنت" },
       { label: "الصيغ", value: ".PSD, .AI, .INDD, .PDF" },
       { label: "التكلفة", value: "مجاني ومفتوح المصدر" },
     ],
@@ -206,34 +205,34 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
       problemStatement:
         "ظهور تنبيه Missing Fonts عند فتح مشاريع العملاء يعطل سير العمل وغالبًا ما يتطلب باقات مدفوعة في البرامج المنافسة.",
       architecturalSolution:
-        "يدمج فونتيفو محلل ملفات بلغة Rust مع خادم ربط محلي محصور على localhost فقط.",
+        "يدمج فونتيفو ماسح ملفات سريعًا يعمل دون إنترنت لمزامنة الخطوط المفقودة مباشرة مع برامج Adobe CC.",
       workflow: [
         {
           step: 1,
           phase: "الفحص",
-          action: "قراءة أسماء PostScript من مجلد المشروع أو الملف.",
+          action: "فحص مجلد المشروع أو ملف التصميم المفتوح.",
           outcome: "تحديد الخطوط المطلوبة محليًا في لحظات.",
         },
         {
           step: 2,
           phase: "التفعيل",
-          action: "مطابقة الملفات وتفعيلها بالذاكرة عبر Win32.",
+          action: "مطابقة خطوط مساحة العمل وتفعيلها للجلسة.",
           outcome: "تعمل الخطوط فورًا داخل تطبيقات Adobe.",
         },
       ],
       technicalSpecs: [
-        { label: "النطاق", value: "محلي فقط (127.0.0.1)" },
+        { label: "المعالجة", value: "محلية على جهازك فقط" },
         { label: "التتبع", value: "صفر بايت" },
       ],
       architectureDiagram: {
         type: "socket",
-        title: "تدفق الربط المحلي",
+        title: "المزامنة المحلية التلقائية",
         description:
-          "PSD / AI / INDD -> مطابقة PostScript -> تفعيل بالذاكرة -> Adobe CC",
+          "PSD / AI / INDD -> مطابقة الخطوط -> تفعيل فوري -> Adobe CC",
       },
       codeSnippet: {
         language: "json",
-        filename: "bridge-request.json",
+        filename: "sync-request.json",
         code: `{ "action": "activateFonts", "fonts": ["Cairo-Bold", "Inter-Regular"] }`,
       },
     },
@@ -296,16 +295,16 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
     id: "system-fonts-recovery",
     title: "حماية خطوط النظام والخصوصية",
     shortTitle: "أمان النظام",
-    tagline: "تنظيف آمن لمدخلات الريجستري الميتة مع عمل محلي خالٍ من التتبع.",
+    tagline: "تنظيف آمن لقيود الخطوط المعطوبة مع عمل محلي خالٍ من التتبع.",
     description:
-      "يحفظ نسخًا احتياطية قبل أي صيانة، ويحمي خطوط ويندوز الأساسية من الحذف بالخطأ، ويعمل محليًا بنسبة 100% ومختبر بـ 135 اختبار Rust.",
+      "يحفظ نسخًا احتياطية قبل أي صيانة، ويحمي خطوط ويندوز الأساسية من الحذف بالخطأ، ويعمل محليًا بدون إنترنت بنسبة 100%.",
     iconName: "ShieldCheck",
     category: "security",
     badge: "بلا تتبع",
     highlights: [
       "قائمة حماية صارمة لخطوط النظام الأساسية مثل Segoe UI و Arial و Tahoma.",
       "صفر تتبع، صفر إعلانات، ودون الحاجة لتسجيل حساب.",
-      "مختبر بـ 135 اختبار Rust و170 اختبار واجهة بنجاح.",
+      "مختبر بدقة عبر اختبارات آلية شاملة لسطح المكتب والواجهة.",
     ],
     specs: [
       { label: "التتبع الخارجي", value: "0 بايت" },
@@ -313,14 +312,14 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
     ],
     deepDive: {
       problemStatement:
-        "برامج الخطوط القديمة قد تترك قيودًا معطوبة في الريجستري أو تعرض خطوط النظام للخطر.",
+        "برامج الخطوط القديمة قد تترك قيودًا معطوبة أو تعرض خطوط النظام للخطر.",
       architecturalSolution:
         "ينشئ فونتيفو لقطة استعادة تلقائية قبل أي إجراء صيانة مع حماية صارمة لخطوط ويندوز الأساسية.",
       workflow: [
         {
           step: 1,
           phase: "الفحص",
-          action: "مراجعة قيود خطوط HKCU/HKLM ومطابقتها بالقرص.",
+          action: "مراجعة قيود خطوط النظام ومطابقتها بالملفات.",
           outcome: "تنظيف القيود المعلقة فقط بأمان.",
         },
         {
@@ -331,19 +330,19 @@ PostMessageW(HWND_BROADCAST, WM_FONTCHANGE, 0, 0);`,
         },
       ],
       technicalSpecs: [
-        { label: "اختبارات Rust", value: "135 ناجحة (0 تحذيرات)" },
-        { label: "اختبارات الواجهة", value: "170 ناجحة" },
+        { label: "الوضع", value: "عمل محلي 100% بدون إنترنت" },
+        { label: "الخصوصية", value: "بدون حسابات أو تتبع" },
       ],
       architectureDiagram: {
         type: "security",
         title: "طبقة حماية النظام",
         description:
-          "حماية الخطوط الأساسية -> حفظ نسخة احتياطية -> صيانة آمنة للريجستري",
+          "حماية الخطوط الأساسية -> حفظ نسخة احتياطية -> تنظيف آمن للنظام",
       },
       codeSnippet: {
         language: "text",
         filename: "audit.log",
-        code: `[OK] Core Windows fonts protected • 0 orphaned keys • Snapshot saved`,
+        code: `[OK] Core Windows fonts protected • 0 broken entries • Snapshot saved`,
       },
     },
   },

@@ -39,7 +39,7 @@ export const siteConfig = {
   versionTag: FONTIVO_VERSION_TAG,
   fontsReleaseTag: FONTIVO_FONTS_VERSION_TAG,
   title: "Fontivo — Type. Design. Deliver.",
-  description: `Lightweight Windows, macOS & Linux desktop font manager (${FONTIVO_VERSION_TAG}) & ${FONTIVO_FONTS_TOTAL}-font library (${FONTIVO_FONTS_VERSION_TAG}) built with Native Rust & React 19. Activate fonts in RAM with zero registry bloat. 100% Free & Open Source.`,
+  description: `Fast, lightweight desktop font manager (${FONTIVO_VERSION_TAG}) for Windows, macOS & Linux, paired with ${FONTIVO_FONTS_TOTAL} curated fonts (${FONTIVO_FONTS_VERSION_TAG}). Activate fonts instantly without slowing down your system, sync missing fonts in Adobe Creative Cloud, and build .ASE color palettes—100% free and offline.`,
   url: resolvedSiteUrl,
   ogImage: `${resolvedSiteUrl}/brand/og-image.png`,
   links: {
@@ -68,11 +68,11 @@ export const siteConfig = {
       nameEn: "Eng. Ahmed Fahmy",
       nameAr: "م. أحمد فهمي",
       role: "Software Engineer",
-      specialty: "Rust • Win32 APIs • Desktop & Web",
+      specialty: "Desktop Systems • Performance • Web",
       summaryEn:
-        "Architected the native Rust desktop engine, in-memory font activation, Adobe CC loopback bridge, and Fontivo web platform.",
+        "Architected the lightweight Fontivo desktop engine, instant memory-based font activation, automatic Adobe Creative Cloud font syncing, and the Fontivo web platform.",
       summaryAr:
-        "تطوير نواة التطبيق بلغة Rust، وتفعيل الخطوط بالذاكرة، وجسر ربط Adobe CC، ومنصة Fontivo الإلكترونية.",
+        "تصميم وتطوير نواة تطبيق فونتيفو الخفيفة، ونظام التفعيل الفوري للخطوط في الذاكرة، والمزامنة التلقائية مع برامج Adobe Creative Cloud، ومنصة فونتيفو الإلكترونية.",
       githubUrl: "https://github.com/Ahmedfahmy8308",
       githubHandle: "@Ahmedfahmy8308",
       portfolioUrl: "https://ahmed-fahmy.engineer/",
@@ -86,9 +86,9 @@ export const siteConfig = {
       role: "Graphic Designer",
       specialty: "Brand Identity • Typography • UI/UX",
       summaryEn:
-        "Designed the Fontivo v2.0 visual identity, Dual-Ribbon F mark, design tokens, and curated multi-script typography collections.",
+        "Crafted the Fontivo v2.0 visual identity, Dual-Ribbon F mark, design system tokens, and curated multi-script Arabic and Latin typography collections.",
       summaryAr:
-        "تصميم الهوية البصرية والشعار وأنظمة الألوان وتنسيق وتنظيم حزم الخطوط العربية والعالمية.",
+        "تصميم الهوية البصرية لتطبيق فونتيفو v2.0، والشعار، وأنظمة الألوان والتباين، وتنسيق وتنظيم حزم الخطوط العربية والعالمية.",
       portfolioUrl: "https://mohamed-elashwah.me/",
       accent: "lavender",
     },
@@ -116,10 +116,10 @@ export const siteConfig = {
     "Arabic fonts pack",
     "Urdu Nastaliq fonts",
     "Persian fonts",
-    "Adobe CC auto activation",
-    "Win32 FR_PRIVATE",
+    "Adobe CC font sync",
+    "instant font activation",
     "Color Studio ASE",
-    "Rust open source font manager",
+    "open source font manager",
   ],
 };
 

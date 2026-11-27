@@ -14,11 +14,11 @@ describe("ProductPreview Component", () => {
     expect(screen.getByText("Tajawal")).toBeDefined();
   });
 
-  it("switches between Font Library, Adobe CC Bridge, and Color Studio tabs", () => {
+  it("switches between Font Library, Adobe CC Sync, and Color Studio tabs", () => {
     render(<ProductPreview />);
 
-    fireEvent.click(screen.getByRole("button", { name: /Adobe CC Bridge/i }));
-    expect(screen.getByText(/127\.0\.0\.1:27715/i)).toBeDefined();
+    fireEvent.click(screen.getByRole("button", { name: /Adobe CC Sync/i }));
+    expect(screen.getByText(/Offline Auto-Sync/i)).toBeDefined();
 
     fireEvent.click(screen.getByRole("button", { name: /Color Studio/i }));
     expect(screen.getByText("Plum Ink")).toBeDefined();
@@ -39,14 +39,14 @@ describe("ProductPreview Component", () => {
     expect(screen.getByText("36px")).toBeDefined();
   });
 
-  it("toggles font RAM activation state between Active in RAM and Not mounted", () => {
+  it("toggles font activation state between Active and Inactive", () => {
     render(<ProductPreview />);
 
-    const ramButtons = screen.getAllByRole("button", {
-      name: /Active in RAM/i,
+    const activeButtons = screen.getAllByRole("button", {
+      name: /^Active$/i,
     });
-    const toggleBtn = ramButtons[ramButtons.length - 1];
+    const toggleBtn = activeButtons[activeButtons.length - 1];
     fireEvent.click(toggleBtn);
-    expect(screen.getAllByText(/Not mounted/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/^Inactive$/i).length).toBeGreaterThan(0);
   });
 });

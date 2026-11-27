@@ -12,7 +12,7 @@ export interface FAQItem {
 export const faqCategories = [
   { id: "all", label: "All", labelAr: "الكل" },
   { id: "general", label: "General", labelAr: "عام" },
-  { id: "technical", label: "RAM & App", labelAr: "الذاكرة والتطبيق" },
+  { id: "technical", label: "Speed & Activation", labelAr: "السرعة والتفعيل" },
   { id: "workflow", label: "Adobe & Workflow", labelAr: "أدوبي وسير العمل" },
   { id: "security", label: "Safety", labelAr: "الأمان" },
   {
@@ -29,19 +29,20 @@ export const faqItems: FAQItem[] = [
     question: "What is Fontivo and how is it different?",
     questionAr: "ما هو فونتيفو وبماذا يتميز؟",
     answer:
-      "Fontivo is a lightweight, open-source Windows font manager built with Native Rust & React 19. Unlike heavy Electron managers or paid subscription tools, it uses ~38 MB RAM, starts in under 0.35s, includes Adobe CC auto-activation and Color Studio, and is 100% free forever.",
+      "Fontivo is a fast, lightweight, open-source font manager for designers. Unlike heavy subscription tools, it uses ~38 MB of memory, starts in under 0.35s, includes automatic Adobe CC font syncing and a Brand Color Studio, and is 100% free forever.",
     answerAr:
-      "فونتيفو مدير خطوط مكتبي خفيف ومفتوح المصدر لنظام ويندوز، مطوّر بلغة Rust وReact 19. يتميز باستهلاك ~38 ميجابايت فقط من الذاكرة وإقلاع أسرع من 0.35 ثانية مع جسر أدوبي واستوديو الألوان مجانًا بالكامل للأبد.",
+      "فونتيفو مدير خطوط مكتبي سريع وخفيف ومفتوح المصدر للمصممين. يتميز باستهلاك ~38 ميجابايت فقط من الذاكرة وإقلاع أسرع من 0.35 ثانية مع مزامنة تلقائية لبرامج Adobe CC واستوديو الألوان مجانًا بالكامل للأبد.",
   },
   {
     id: "live-ram-virtualization",
     category: "technical",
-    question: "Does RAM activation modify the Windows Registry?",
-    questionAr: "هل تفعيل الخطوط في الرام يغيّر سجل ويندوز (Registry)؟",
+    question:
+      "Does Fontivo slow down Windows or clutter my system fonts folder?",
+    questionAr: "هل يبطئ فونتيفو ويندوز أو يكدس مجلد خطوط النظام؟",
     answer:
-      "No. Fontivo mounts fonts in user session memory using Win32 AddFontResourceExW (FR_PRIVATE) and never copies files to C:\\Windows\\Fonts or adds permanent registry keys. Everything unloads cleanly when you close the app.",
+      "No. Fontivo activates fonts temporarily for your active session without copying thousands of files into your Windows Fonts folder or leaving permanent system clutter. Everything unloads cleanly when you close the app.",
     answerAr:
-      "لا نهائيًا. يستخدم فونتيفو واجهة Win32 AddFontResourceExW بعلم العزل FR_PRIVATE لتفعيل الخطوط مؤقتًا في الذاكرة دون نسخ ملفات أو كتابة مفاتيح دائمة، وتُلغى نظيفًا عند إغلاق البرنامج.",
+      "لا نهائيًا. يفعّل فونتيفو الخطوط مؤقتًا لجلستك الحالية دون نسخ آلاف الملفات إلى مجلد خطوط ويندوز أو ترك أي عبء دائم على النظام، وتُلغى نظيفًا عند إغلاق البرنامج.",
   },
   {
     id: "font-library-delivery",
@@ -54,12 +55,12 @@ export const faqItems: FAQItem[] = [
   {
     id: "adobe-bridge",
     category: "workflow",
-    question: "How does Adobe CC Auto-Activation work?",
-    questionAr: "كيف يعمل الربط التلقائي مع برامج Adobe CC؟",
+    question: "How does Adobe CC Auto-Sync work?",
+    questionAr: "كيف تعمل المزامنة التلقائية مع برامج Adobe CC؟",
     answer:
-      "Fontivo listens locally on 127.0.0.1:27715 and inspects .PSD, .AI, and .INDD files on your machine to identify missing PostScript names, mounting matching workspace fonts in RAM automatically.",
+      "Fontivo scans .PSD, .AI, and .INDD files locally on your machine to detect missing fonts and activates matching workspace fonts automatically inside Photoshop, Illustrator, and InDesign—completely offline.",
     answerAr:
-      "يعمل خادم محلي على المنفذ 127.0.0.1:27715 لفحص ملفات .PSD و.AI و.INDD على جهازك وتفعيل الخطوط المطابقة تلقائيًا في الذاكرة دون مغادرة جهازك.",
+      "يفحص فونتيفو ملفات .PSD و.AI و.INDD محليًا على جهازك لاكتشاف الخطوط المفقودة وتفعيل الخطوط المطابقة تلقائيًا داخل Photoshop وIllustrator وInDesign دون اتصال بالإنترنت.",
   },
   {
     id: "admin-permissions",
@@ -67,9 +68,9 @@ export const faqItems: FAQItem[] = [
     question: "Do I need administrator rights to run Fontivo?",
     questionAr: "هل أحتاج لصلاحيات المدير (Administrator) لتشغيل التطبيق؟",
     answer:
-      "No admin rights are needed for normal browsing and RAM font activation. Both the setup installer and portable ZIP run smoothly in standard user mode.",
+      "No admin rights are needed for normal browsing and instant font activation. Both the setup installer and portable ZIP run smoothly in standard user mode.",
     answerAr:
-      "لا تحتاج لأي صلاحيات مسؤول للتصفح أو تفعيل الخطوط بالذاكرة. كل من المثبت والنسخة المحمولة يعملان بسلاسة في وضع المستخدم العادي.",
+      "لا تحتاج لأي صلاحيات مسؤول للتصفح أو تفعيل الخطوط. كل من المثبت والنسخة المحمولة يعملان بسلاسة في وضع المستخدم العادي.",
   },
   {
     id: "system-health-doctor",
@@ -77,9 +78,9 @@ export const faqItems: FAQItem[] = [
     question: "How does System Health protect my Windows fonts?",
     questionAr: "كيف يحمي فحص صحة النظام خطوط ويندوز الأساسية؟",
     answer:
-      "Fontivo strictly protects essential Windows system fonts (like Segoe UI, Arial, and Tahoma) from removal and takes an automatic backup snapshot before cleaning dead registry references.",
+      "Fontivo strictly protects essential Windows system fonts (like Segoe UI, Arial, and Tahoma) from removal and takes an automatic backup snapshot before cleaning broken font entries.",
     answerAr:
-      "يفرض التطبيق قائمة حماية صارمة لخطوط ويندوز الأساسية مثل Segoe UI وArial وTahoma، وينشئ لقطة استعادة قبل تنظيف أي قيود ميتة في السجل.",
+      "يفرض التطبيق قائمة حماية صارمة لخطوط ويندوز الأساسية مثل Segoe UI وArial وTahoma، وينشئ لقطة استعادة تلقائية قبل تنظيف أي قيود خطوط معطوبة.",
   },
   {
     id: "pricing-open-source",

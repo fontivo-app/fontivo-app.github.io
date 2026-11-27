@@ -1,24 +1,24 @@
-# Fontivo — Native Desktop Font Manager & 10,939-Font Library
+# Fontivo — Fast Desktop Font Manager & 10,939-Font Library
 
-> Fontivo is a free, open-source (MIT) Windows, macOS, and Linux desktop font manager built with Native Rust and React 19, paired with the Fontivo-Fonts v1.0.3 curated typography collection.
+> Fontivo is a free, open-source (MIT) Windows, macOS, and Linux desktop font manager designed for speed and creative workflows, paired with the Fontivo-Fonts v1.0.3 curated typography collection.
 
-## Full Technical Documentation (GEO / LLM Index)
-- Extended Technical Reference: https://fontivo-app.github.io/llms-full.txt
+## Full Product Reference (GEO / LLM Index)
+- Extended Reference: https://fontivo-app.github.io/llms-full.txt
 
 ## Canonical Releases
-- Desktop Application: v1.1.5 (Windows Setup Installer `Fontivo-Setup.exe`, 4.62 MB; macOS & Linux native verified installer `scripts/install.sh`)
+- Desktop Application: v1.1.5 (Windows Setup Installer `Fontivo-Setup.exe`, 4.62 MB; macOS & Linux installer `scripts/install.sh`)
 - Fontivo-Fonts Library: v1.0.3 (10,939 unique SHA-256 deduplicated fonts across 4,430 families in 15 modular ZIP packs, 864.01 MB total)
   - Scripts: Latin (7,146), Urdu (1,565), Persian (1,257), Arabic (971)
 
 ## Core Capabilities
-- In-Memory Font Activation on Windows via Win32 `AddFontResourceExW (FR_PRIVATE)` with zero permanent Windows Registry writes.
-- Local Adobe CC Auto-Activation Bridge on `127.0.0.1:27715` for `.PSD`, `.AI`, `.INDD`, and `.PDF`.
+- Instant Font Activation without slowing down Windows or cluttering your system fonts folder.
+- Automatic Font Syncing inside Adobe Photoshop, Illustrator, and InDesign for `.PSD`, `.AI`, `.INDD`, and `.PDF` files.
 - Brand Workspaces for organizing per-client typography sets and color palettes.
-- Brand Color Studio with 5x5 loupe picker, live WCAG 2.1 contrast auditing, and binary `.ASE` swatch export.
-- 100% local-first, zero telemetry, zero subscriptions.
+- Brand Color Studio with 5x5 loupe picker, live WCAG 2.1 contrast auditing, and `.ASE` swatch export.
+- 100% offline-first, zero telemetry, zero subscriptions.
 
-## Developers
-- Eng. Ahmed Fahmy — Software Engineer (Rust Engine, Win32 APIs, Desktop & Web) — https://github.com/Ahmedfahmy8308 | https://ahmed-fahmy.engineer/
+## Creators
+- Eng. Ahmed Fahmy — Software Engineer (Desktop Systems, Performance, Web) — https://github.com/Ahmedfahmy8308 | https://ahmed-fahmy.engineer/
 - Eng. Mohamed Elashwah — Graphic Designer (Brand Identity, Typography, UI/UX) — https://mohamed-elashwah.me/
 
 ## Official URLs & API Endpoints

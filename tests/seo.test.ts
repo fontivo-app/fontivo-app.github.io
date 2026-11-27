@@ -177,12 +177,12 @@ describe("SEO & Structured Data Specifications", () => {
     expect(llmsTxt).toContain("https://github.com/Ahmedfahmy8308/Fontivo-Site");
     expect(llmsTxt).not.toContain("ahmedfahmy8308.github.io/Fontivo-Site");
 
-    expect(llmsFullTxt).toContain("AddFontResourceExW");
+    expect(llmsFullTxt).toContain("Instant Session-Based Font Activation");
     expect(llmsFullTxt).toContain("10,939");
     expect(llmsFullTxt).toContain("FontBase");
     expect(llmsFullTxt).toContain("NexusFont");
     expect(llmsFullTxt).toContain("MainType");
-    expect(llmsFullTxt).toContain("127.0.0.1:27715");
+    expect(llmsFullTxt).toContain("Adobe CC Auto-Sync");
 
     expect(manifest.website).toBe("https://fontivo-app.github.io");
     expect(manifest.fontsLibrary.repository).toBe(

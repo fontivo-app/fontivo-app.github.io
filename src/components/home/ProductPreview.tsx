@@ -274,7 +274,9 @@ export function ProductPreview() {
 
                   <div className="flex flex-wrap items-center justify-between gap-3 border-t border-brand-border-subtle pt-3">
                     <span className="text-xs font-mono text-brand-text-muted">
-                      Win32 FR_PRIVATE • 0 Registry Writes
+                      {locale === "ar"
+                        ? "تفعيل فوري • بدون تكديس مجلد خطوط النظام"
+                        : "Instant Activation • Keeps System Fonts Clean"}
                     </span>
                     <button
                       type="button"

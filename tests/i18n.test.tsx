@@ -174,7 +174,7 @@ describe("i18n Translation Dictionaries & Localization System", () => {
 
     expect(screen.getByText(/خطوطك وهويتك\./i)).toBeDefined();
     expect(screen.getByText(/بسرعة وبساطة\./i)).toBeDefined();
-    expect(screen.getByText("تفعيل بالذاكرة RAM")).toBeDefined();
+    expect(screen.getByText("تفعيل فوري للخطوط")).toBeDefined();
     expect(screen.getAllByText("10,939").length).toBeGreaterThan(0);
     expect(screen.getByText("م. أحمد فهمي")).toBeDefined();
     expect(screen.getByText("م. محمد الأشوح")).toBeDefined();

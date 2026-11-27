@@ -366,20 +366,20 @@ export const currentRelease: ReleaseInfo = {
   title: `Fontivo ${FONTIVO_VERSION_TAG} — Native Desktop & 11K Font Library`,
   isLatest: true,
   notes: [
-    "Native Rust core + React 19 desktop font manager with ~38 MB memory footprint.",
-    "In-memory Win32 font activation (FR_PRIVATE) without modifying Windows Registry.",
+    "Fast, offline-first desktop font manager with ~38 MB memory footprint.",
+    "Instant session-based font activation without cluttering your Windows fonts folder.",
     "Synced with Fontivo-Fonts v1.0.3 (10,939 metadata-normalized fonts across 4,430 families).",
-    "Built-in Adobe CC auto-activation bridge and Brand Color Studio (.ASE export).",
+    "Automatic Adobe CC font syncing and Brand Color Studio (.ASE export).",
   ],
   changelogCategories: [
     {
       category: "Desktop App",
       items: [
-        "Ergonomic Workspace Brand Builder with custom font roles synced into Fonts/ and RAM, dynamic color palette rows in Create & Edit modals, target deadlines, and RTL-safe layout",
-        "Redesigned brand swatch cards, task due-date countdowns & priorities, 7 one-click brand folder templates, pinned assets, StyleGuide.html launcher, and safe open-file / subfolder delete APIs",
+        "Ergonomic Workspace Brand Builder with custom font roles synced into Fonts/ and active session, dynamic color palette rows in Create & Edit modals, target deadlines, and RTL-safe layout",
+        "Redesigned brand swatch cards, task due-date countdowns & priorities, 7 one-click brand folder templates, pinned assets, StyleGuide.html launcher, and safe open-file / subfolder delete actions",
         "Segmented Local & Custom library tabs (Custom, Imported Folders, Cloud Packs, Google Offline) with clickable folder chips and sandboxed folder deletion",
         "Balanced UpdaterModal status banner and single-line action toolbar with resilient Fontivo-Site manifest fallback",
-        "Instant FR_PRIVATE RAM font activation, built-in Adobe CC loopback bridge, and .ASE palette export across Windows, macOS, and Linux",
+        "Instant font activation, automatic Adobe CC font syncing, and .ASE palette export across Windows, macOS, and Linux",
       ],
     },
     {

@@ -15,7 +15,9 @@ describe("FAQClient Component", () => {
 
     expect(screen.getByText("Frequently Asked Questions")).toBeDefined();
     expect(screen.getByRole("button", { name: /^All$/i })).toBeDefined();
-    expect(screen.getByRole("button", { name: /RAM & App/i })).toBeDefined();
+    expect(
+      screen.getByRole("button", { name: /Speed & Activation/i }),
+    ).toBeDefined();
     expect(
       screen.getByText(/What is Fontivo and how is it different\?/i),
     ).toBeDefined();
@@ -40,9 +42,9 @@ describe("FAQClient Component", () => {
 
     fireEvent.click(screen.getByRole("button", { name: /^All$/i }));
     const searchInput = screen.getByPlaceholderText(/Search questions/i);
-    fireEvent.change(searchInput, { target: { value: "27715" } });
+    fireEvent.change(searchInput, { target: { value: "Photoshop" } });
     expect(
-      screen.getByText(/How does Adobe CC Auto-Activation work\?/i),
+      screen.getByText(/How does Adobe CC Auto-Sync work\?/i),
     ).toBeDefined();
   });
 

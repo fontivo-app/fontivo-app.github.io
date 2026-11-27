@@ -19,9 +19,9 @@ describe("AboutClient Component", () => {
     expect(
       screen.getByText("Keep Windows Clean While Managing Thousands of Fonts"),
     ).toBeDefined();
-    expect(screen.getByText("RAM Over Registry")).toBeDefined();
+    expect(screen.getByText("Clean System Fonts")).toBeDefined();
     expect(screen.getByText("Zero Telemetry")).toBeDefined();
-    expect(screen.getByText("Native Rust Speed")).toBeDefined();
+    expect(screen.getByText("Lightweight Speed")).toBeDefined();
     expect(screen.getByText("Open Source Forever")).toBeDefined();
   });
 

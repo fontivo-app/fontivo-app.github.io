@@ -20,7 +20,7 @@ describe("DocsClient Component", () => {
     expect(screen.getByText("1. Download & Install")).toBeDefined();
     expect(screen.getByText("2. Verify SHA-256 (Optional)")).toBeDefined();
     expect(screen.getByText("3. Get the 11K Font Packs")).toBeDefined();
-    expect(screen.getByText("4. Activate in RAM & Design")).toBeDefined();
+    expect(screen.getByText("4. Activate & Design")).toBeDefined();
   });
 
   it("displays dynamic SHA-256 verification command for the Windows installer", async () => {
@@ -42,7 +42,7 @@ describe("DocsClient Component", () => {
     });
   });
 
-  it("lists core Win32 paths, port 27715, and Fontivo-Fonts v1.0.3 reference", () => {
+  it("lists workspace paths, Adobe CC auto-sync, and Fontivo-Fonts v1.0.3 reference", () => {
     render(
       <LanguageProvider>
         <DocsClient />
@@ -50,9 +50,11 @@ describe("DocsClient Component", () => {
     );
 
     expect(
-      screen.getByText(/AddFontResourceExW \(FR_PRIVATE\)/i),
+      screen.getByText(/keeps Windows Fonts folder clean and fast/i),
     ).toBeDefined();
-    expect(screen.getByText(/127\.0\.0\.1:27715/i)).toBeDefined();
+    expect(
+      screen.getByText(/Automatic local font syncing for \.PSD/i),
+    ).toBeDefined();
     expect(screen.getByText(/Fontivo-Fonts v1\.0\.3/i)).toBeDefined();
   });
 
@@ -72,6 +74,6 @@ describe("DocsClient Component", () => {
     );
 
     expect(screen.getByText("1. التحميل والتثبيت")).toBeDefined();
-    expect(screen.getByText("4. التفعيل في RAM والتصميم")).toBeDefined();
+    expect(screen.getByText("4. التفعيل والتصميم")).toBeDefined();
   });
 });
