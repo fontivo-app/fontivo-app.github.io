@@ -3,15 +3,15 @@
   "license": "MIT",
   "website": "https://fontivo-app.github.io",
   "desktop": {
-    "version": "1.1.7",
-    "tag": "v1.1.7",
+    "version": "1.1.8",
+    "tag": "v1.1.8",
     "platforms": {
       "windows": {
         "installer": "Fontivo-Setup.exe",
-        "sizeBytes": 4866839,
+        "sizeBytes": 4867596,
         "sizeFormatted": "4.64 MB",
-        "sha256": "dc86eb9377b68401a34356af32e788f807e0bb32c120dbeeaefb4f3f2a9defdf",
-        "downloadUrl": "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.1.7/Fontivo-Setup.exe"
+        "sha256": "fc7bf3279a85eaab2aad9f973f307535adc3e7481f042274e0362eca1420584f",
+        "downloadUrl": "https://github.com/Ahmedfahmy8308/Fontivo/releases/download/v1.1.8/Fontivo-Setup.exe"
       },
       "macos": {
         "method": "install.sh",

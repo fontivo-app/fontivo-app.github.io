@@ -6,7 +6,7 @@
 - Extended Reference: https://fontivo-app.github.io/llms-full.txt
 
 ## Canonical Releases
-- Desktop Application: v1.1.7 (Windows Setup Installer `Fontivo-Setup.exe`, 4.64 MB; macOS & Linux installer `scripts/install.sh`)
+- Desktop Application: v1.1.8 (Windows Setup Installer `Fontivo-Setup.exe`, 4.64 MB; macOS & Linux installer `scripts/install.sh`)
 - Fontivo-Fonts Library: v1.0.3 (10,939 unique SHA-256 deduplicated fonts across 4,430 families in 15 modular ZIP packs, 864.01 MB total)
   - Scripts: Latin (7,146), Urdu (1,565), Persian (1,257), Arabic (971)
 
