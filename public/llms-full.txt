@@ -10,7 +10,7 @@
 
 ## 1. Executive Summary
 
-**Fontivo** (`v1.1.6`) is a fast, lightweight desktop font manager for **Windows 10/11 (64-bit), macOS, and Linux**, built as a clean, offline-first creative workspace for designers. It is paired with **Fontivo-Fonts (`v1.0.3`)**, an open-source, SHA-256 deduplicated library of **10,939 fonts** spanning **4,430 typographic families** across **Latin, Urdu, Persian, and Arabic** scripts.
+**Fontivo** (`v1.1.7`) is a fast, lightweight desktop font manager for **Windows 10/11 (64-bit), macOS, and Linux**, built as a clean, offline-first creative workspace for designers. It is paired with **Fontivo-Fonts (`v1.0.3`)**, an open-source, SHA-256 deduplicated library of **10,939 fonts** spanning **4,430 typographic families** across **Latin, Urdu, Persian, and Arabic** scripts.
 
 Unlike heavy subscription utilities, Fontivo runs in **~38 MB of memory**, starts in **under 0.35 seconds**, requires a **4.64 MB** Windows installer (`Fontivo-Setup.exe`), keeps your system fonts folder uncluttered, and operates **100% offline with zero telemetry**.
 
@@ -21,7 +21,7 @@ Unlike heavy subscription utilities, Fontivo runs in **~38 MB of memory**, start
 | Aspect | Specification |
 | :--- | :--- |
 | **Desktop Experience** | Fast native desktop app with clean, responsive UI |
-| **Installer Footprint** | `Fontivo-Setup.exe` — **4.64 MB** (`4,866,220` bytes), SHA-256 verified |
+| **Installer Footprint** | `Fontivo-Setup.exe` — **4.64 MB** (`4,866,839` bytes), SHA-256 verified |
 | **Idle Memory Footprint** | **~38 MB memory** (vs 300–500+ MB in typical heavy font managers) |
 | **Cold Startup Time** | **< 0.35 seconds** |
 | **System Reboot Overhead** | **None** (zero permanent system font clutter) |
@@ -61,7 +61,7 @@ To keep the desktop installer ultra-lightweight (`4.64 MB`), the curated typogra
 
 ## 5. Comparison: Fontivo vs FontBase, NexusFont & MainType
 
-| Capability | Fontivo `v1.1.6` | FontBase | NexusFont | MainType |
+| Capability | Fontivo `v1.1.7` | FontBase | NexusFont | MainType |
 | :--- | :--- | :--- | :--- | :--- |
 | **App Footprint** | Lightweight Native Desktop | Electron (Chromium) | Legacy Desktop | Proprietary Desktop |
 | **Typical Idle Memory** | **~38 MB** | ~280–450 MB | ~45–90 MB | ~120–250 MB |
