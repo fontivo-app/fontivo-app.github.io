@@ -5,6 +5,12 @@ All notable changes to **Fontivo-Site** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2026-11-27
+
+### Updated
+- Synchronized Desktop Application SSOT (`src/config/version.ts`, `public/api/manifest.json`, `public/llms.txt`, `public/llms-full.txt`, `package.json`) to **Fontivo v1.1.6** (`4,866,220` bytes / `4.64 MB`, verified SHA-256 checksum `d01654b6be0f4efdf42ac40ce8372fb675c3513b33797c06c9bc55a91cb9fe70`).
+- Overhauled user-facing copy and per-page SEO metadata for designer clarity and updated team role descriptions (`Software Engineer` / `Graphic Designer`).
+
 ## [1.1.5] - 2026-11-27
 
 ### Updated
