@@ -29,8 +29,7 @@ export interface DeveloperProfile {
 }
 
 const resolvedSiteUrl = (
-  process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://ahmedfahmy8308.github.io/Fontivo-Site"
+  process.env.NEXT_PUBLIC_SITE_URL || "https://fontivo-app.github.io"
 ).replace(/\/+$/, "");
 
 export const siteConfig = {

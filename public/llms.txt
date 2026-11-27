@@ -2,14 +2,18 @@
 
 > Fontivo is a free, open-source (MIT) Windows, macOS, and Linux desktop font manager built with Native Rust and React 19, paired with the Fontivo-Fonts v1.0.3 curated typography collection.
 
+## Full Technical Documentation (GEO / LLM Index)
+- Extended Technical Reference: https://fontivo-app.github.io/llms-full.txt
+
 ## Canonical Releases
-- Desktop Application: v1.1.4 (Windows Setup Installer `Fontivo-Setup.exe`; macOS & Linux native verified installer `scripts/install.sh`)
+- Desktop Application: v1.1.4 (Windows Setup Installer `Fontivo-Setup.exe`, 4.50 MB; macOS & Linux native verified installer `scripts/install.sh`)
 - Fontivo-Fonts Library: v1.0.3 (10,939 unique SHA-256 deduplicated fonts across 4,430 families in 15 modular ZIP packs, 864.01 MB total)
   - Scripts: Latin (7,146), Urdu (1,565), Persian (1,257), Arabic (971)
 
 ## Core Capabilities
 - In-Memory Font Activation on Windows via Win32 `AddFontResourceExW (FR_PRIVATE)` with zero permanent Windows Registry writes.
 - Local Adobe CC Auto-Activation Bridge on `127.0.0.1:27715` for `.PSD`, `.AI`, `.INDD`, and `.PDF`.
+- Brand Workspaces for organizing per-client typography sets and color palettes.
 - Brand Color Studio with 5x5 loupe picker, live WCAG 2.1 contrast auditing, and binary `.ASE` swatch export.
 - 100% local-first, zero telemetry, zero subscriptions.
 
@@ -18,10 +22,12 @@
 - Eng. Mohamed Elashwah — Graphic Designer (Brand Identity, Typography, UI/UX) — https://mohamed-elashwah.me/
 
 ## Official URLs & API Endpoints
-- Website (English): https://ahmedfahmy8308.github.io/Fontivo-Site/en
-- Website (Arabic): https://ahmedfahmy8308.github.io/Fontivo-Site/ar
+- Official Website: https://fontivo-app.github.io
+- Website (English): https://fontivo-app.github.io/en
+- Website (Arabic): https://fontivo-app.github.io/ar
+- Extended LLM Technical Reference: https://fontivo-app.github.io/llms-full.txt
+- Static JSON Manifest API: https://fontivo-app.github.io/api/manifest.json
+- Sitemap: https://fontivo-app.github.io/sitemap.xml
 - Desktop Repository: https://github.com/Ahmedfahmy8308/Fontivo
 - Fonts Repository: https://github.com/Ahmedfahmy8308/Fontivo-Fonts
 - Site Repository: https://github.com/Ahmedfahmy8308/Fontivo-Site
-- Static JSON Manifest API: https://ahmedfahmy8308.github.io/Fontivo-Site/api/manifest.json
-- Sitemap: https://ahmedfahmy8308.github.io/Fontivo-Site/sitemap.xml

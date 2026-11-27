@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<a href="https://ahmedfahmy8308.github.io/Fontivo-Site/">
+<a href="https://fontivo-app.github.io/">
   <img src="public/brand/og-image.svg" alt="Fontivo — Type. Design. Deliver. Official Web Portal" width="900">
 </a>
 
@@ -14,7 +14,7 @@
 
 <br>
 
-[![Live Site](https://img.shields.io/badge/Live-Fontivo_Web_Portal-F16B50?style=for-the-badge&labelColor=130C16)](https://ahmedfahmy8308.github.io/Fontivo-Site/)
+[![Live Site](https://img.shields.io/badge/Live-Fontivo_Web_Portal-F16B50?style=for-the-badge&labelColor=130C16)](https://fontivo-app.github.io/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15_Static_Export-291C2E?style=for-the-badge&logo=nextdotjs&logoColor=white&labelColor=130C16)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19_Tailwind_CSS-F16B50?style=for-the-badge&logo=react&logoColor=130C16&labelColor=130C16)](src/)
 [![i18n](https://img.shields.io/badge/Localization-%2Fen_%7C_%2Far_(RTL)-B7A1D9?style=for-the-badge&labelColor=130C16)](src/locales/)

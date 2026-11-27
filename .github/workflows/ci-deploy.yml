@@ -38,8 +38,10 @@ jobs:
 
       - name: Build static export
         env:
-          NEXT_PUBLIC_BASE_PATH: /Fontivo-Site
-          NEXT_PUBLIC_SITE_URL: https://ahmedfahmy8308.github.io/Fontivo-Site
+          NEXT_PUBLIC_BASE_PATH: ${{ github.repository == 'Ahmedfahmy8308/Fontivo-Site' && '/Fontivo-Site' || '' }}
+          NEXT_PUBLIC_SITE_URL: https://fontivo-app.github.io
+          NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: ${{ vars.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          NEXT_PUBLIC_BING_VERIFICATION: ${{ vars.NEXT_PUBLIC_BING_VERIFICATION }}
         run: npm run build
 
       - name: Upload static site artifact

@@ -147,7 +147,7 @@ export const ar: Translations = {
     linksTitle: "الروابط الرسمية",
     mainRepoLabel: "مستودع التطبيق (GitHub)",
     fontsRepoLabel: "مستودع الخطوط (GitHub)",
-    websiteLabel: "ahmedfahmy8308.github.io/Fontivo-Site",
+    websiteLabel: "fontivo-app.github.io",
     portfolioBtn: "المعرض الشخصي",
     githubBtn: "GitHub",
   },

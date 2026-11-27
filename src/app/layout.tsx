@@ -1,9 +1,12 @@
-import { FONTIVO_VERSION } from "@/config/version";
 import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono, Sora, Tajawal } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/config/site";
 import { assetPath, BASE_PATH } from "@/lib/utils";
+import {
+  buildSiteVerificationMetadata,
+  buildSoftwareApplicationJsonLd,
+} from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -36,6 +39,8 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
 };
+
+const siteVerification = buildSiteVerificationMetadata();
 
 export const metadata: Metadata = {
   title: {
@@ -86,45 +91,17 @@ export const metadata: Metadata = {
     languages: {
       en: `${siteConfig.url}/en`,
       ar: `${siteConfig.url}/ar`,
+      "x-default": `${siteConfig.url}/en`,
     },
   },
   robots: {
     index: true,
     follow: true,
   },
+  ...(siteVerification ? { verification: siteVerification } : {}),
 };
 
-const softwareJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: siteConfig.name,
-  operatingSystem: "Windows 10, Windows 11 (64-bit), macOS, Linux",
-  applicationCategory: "DesignApplication",
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-  },
-  softwareVersion: FONTIVO_VERSION,
-  description: siteConfig.description,
-  author: [
-    {
-      "@type": "Person",
-      name: "Eng. Ahmed Fahmy",
-      jobTitle: "Software Engineer",
-      url: siteConfig.links.author,
-    },
-    {
-      "@type": "Person",
-      name: "Eng. Mohamed Elashwah",
-      jobTitle: "Graphic Designer",
-      url: siteConfig.links.designerPortfolio,
-    },
-  ],
-  url: siteConfig.url,
-  downloadUrl: siteConfig.links.latestRelease,
-  license: "https://opensource.org/licenses/MIT",
-};
+const softwareJsonLd = buildSoftwareApplicationJsonLd();
 
 const localeInitScript = `(function(){try{var base=${JSON.stringify(BASE_PATH)};var path=window.location.pathname||"";if(base&&(path===base||path.indexOf(base+"/")===0)){path=path.slice(base.length)||"/";}var l=(path==="/ar"||path.indexOf("/ar/")===0)?"ar":((path==="/en"||path.indexOf("/en/")===0)?"en":null);if(!l){var s=window.localStorage.getItem("fontivo_locale");var n=(window.navigator.language||"").toLowerCase();l=(s==="ar"||s==="en")?s:(n.indexOf("ar")===0?"ar":"en");}document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";}catch(e){}})();`;
 

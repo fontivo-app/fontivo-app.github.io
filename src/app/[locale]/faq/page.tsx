@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { faqItems } from "@/config/faq";
 import { Container } from "@/components/ui/Container";
 import { FAQClient } from "@/components/faq/FAQClient";
-import { buildPageMetadata } from "@/lib/seo";
+import { buildFaqPageJsonLd, buildPageMetadata } from "@/lib/seo";
 import { Locale } from "@/locales";
 
 export async function generateMetadata({
@@ -14,19 +14,14 @@ export async function generateMetadata({
   return buildPageMetadata("faq", locale === "ar" ? "ar" : ("en" as Locale));
 }
 
-export default function FAQPage() {
-  const faqPageJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
-      "@type": "Question",
-      name: item.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: item.answer,
-      },
-    })),
-  };
+export default async function FAQPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const resolvedLocale: Locale = locale === "ar" ? "ar" : "en";
+  const faqPageJsonLd = buildFaqPageJsonLd(resolvedLocale);
 
   return (
     <div className="relative py-12 sm:py-16 overflow-hidden">

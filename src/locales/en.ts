@@ -147,7 +147,7 @@ export const en = {
     linksTitle: "Official Project Links",
     mainRepoLabel: "Fontivo App Repo",
     fontsRepoLabel: "Fontivo Fonts Repo",
-    websiteLabel: "ahmedfahmy8308.github.io/Fontivo-Site",
+    websiteLabel: "fontivo-app.github.io",
     portfolioBtn: "Portfolio",
     githubBtn: "GitHub",
   },
