@@ -5,6 +5,12 @@ All notable changes to **Fontivo-Site** will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.5] - 2026-11-27
+
+### Updated
+- Synchronized Desktop Application SSOT (`src/config/version.ts`, `public/api/manifest.json`, `public/llms.txt`, `public/llms-full.txt`, `package.json`) to **Fontivo v1.1.5** (`4,845,517` bytes / `4.62 MB`, verified SHA-256 checksum `08e8da1cc044ed8935cddf22d1388b97e83a939f1e588314a7a72220f9733d4d`).
+- Migrated canonical website URL to `https://fontivo-app.github.io` with full SEO/GEO overhaul (`llms-full.txt`, `SoftwareApplication`/`FAQPage`/`HowTo` JSON-LD, AI crawler `robots.txt`, and Search Console/Bing verification support).
+
 ## [1.1.4] - 2026-11-27
 
 ### Updated

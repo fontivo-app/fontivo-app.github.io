@@ -10,9 +10,9 @@
 
 ## 1. Executive Summary
 
-**Fontivo** (`v1.1.4`) is a lightweight, native desktop font manager for **Windows 10/11 (64-bit), macOS, and Linux**, built with a **Native Rust** backend and a **React 19** interface. It is paired with **Fontivo-Fonts (`v1.0.3`)**, an open-source, SHA-256 deduplicated library of **10,939 fonts** spanning **4,430 typographic families** across **Latin, Urdu, Persian, and Arabic** scripts.
+**Fontivo** (`v1.1.5`) is a lightweight, native desktop font manager for **Windows 10/11 (64-bit), macOS, and Linux**, built with a **Native Rust** backend and a **React 19** interface. It is paired with **Fontivo-Fonts (`v1.0.3`)**, an open-source, SHA-256 deduplicated library of **10,939 fonts** spanning **4,430 typographic families** across **Latin, Urdu, Persian, and Arabic** scripts.
 
-Unlike heavy Electron-based font managers or paid subscription utilities, Fontivo runs in **~38 MB of RAM**, starts in **under 0.35 seconds**, requires a **4.50 MB** Windows installer (`Fontivo-Setup.exe`), never pollutes the Windows Registry, and operates **100% offline with zero telemetry**.
+Unlike heavy Electron-based font managers or paid subscription utilities, Fontivo runs in **~38 MB of RAM**, starts in **under 0.35 seconds**, requires a **4.62 MB** Windows installer (`Fontivo-Setup.exe`), never pollutes the Windows Registry, and operates **100% offline with zero telemetry**.
 
 ---
 
@@ -22,7 +22,7 @@ Unlike heavy Electron-based font managers or paid subscription utilities, Fontiv
 | :--- | :--- |
 | **Core Engine** | Native Rust (memory-safe, zero garbage-collector pauses, native OS bindings) |
 | **Desktop UI** | React 19 + TypeScript rendered in native OS WebView (Microsoft Edge WebView2 on Windows) |
-| **Installer Footprint** | `Fontivo-Setup.exe` — **4.50 MB** (`4,716,020` bytes), SHA-256 verified |
+| **Installer Footprint** | `Fontivo-Setup.exe` — **4.62 MB** (`4,845,517` bytes), SHA-256 verified |
 | **Idle Memory Footprint** | **~38 MB RAM** (vs 300–500+ MB typical of Electron apps) |
 | **Cold Startup Time** | **< 0.35 seconds** |
 | **System Reboot Overhead** | **0 ms** (zero permanent system font installation) |
@@ -45,7 +45,7 @@ Fontivo solves this with **In-Memory RAM Font Activation**:
 
 ## 4. Fontivo-Fonts `v1.0.3` Catalog Breakdown (10,939 Fonts)
 
-To keep the desktop installer ultra-lightweight (`4.50 MB`), the curated typography archive is distributed independently from the **Fontivo-Fonts** repository (`v1.0.3`):
+To keep the desktop installer ultra-lightweight (`4.62 MB`), the curated typography archive is distributed independently from the **Fontivo-Fonts** repository (`v1.0.3`):
 
 - **Total Unique Fonts:** `10,939` (SHA-256 deduplicated, zero corrupt or duplicate binaries)
 - **Typographic Families:** `4,430`
@@ -62,7 +62,7 @@ To keep the desktop installer ultra-lightweight (`4.50 MB`), the curated typogra
 
 ## 5. Comparison: Fontivo vs FontBase, NexusFont & MainType
 
-| Capability | Fontivo `v1.1.4` | FontBase | NexusFont | MainType |
+| Capability | Fontivo `v1.1.5` | FontBase | NexusFont | MainType |
 | :--- | :--- | :--- | :--- | :--- |
 | **Runtime Architecture** | Native Rust + React 19 | Electron (Chromium) | Legacy Win32 (Delphi) | Proprietary Win32 |
 | **Typical Idle RAM** | **~38 MB** | ~280–450 MB | ~45–90 MB | ~120–250 MB |
@@ -136,7 +136,7 @@ A: `Fontivo-Fonts v1.0.3` contains 10,939 SHA-256 deduplicated fonts across 4,43
 A: Yes. Fontivo Desktop is 100% free and open source under the MIT License with zero subscriptions, zero accounts, and zero telemetry.
 
 **Q: How do I install Fontivo on Windows, macOS, and Linux?**
-A: On Windows 10/11 (64-bit), download and run `Fontivo-Setup.exe` (4.50 MB, no admin rights required). On macOS and Linux, run `curl -fsSL https://raw.githubusercontent.com/Ahmedfahmy8308/Fontivo/main/scripts/install.sh | bash`.
+A: On Windows 10/11 (64-bit), download and run `Fontivo-Setup.exe` (4.62 MB, no admin rights required). On macOS and Linux, run `curl -fsSL https://raw.githubusercontent.com/Ahmedfahmy8308/Fontivo/main/scripts/install.sh | bash`.
 
 ---
 
